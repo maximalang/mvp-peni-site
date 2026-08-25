@@ -4,14 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Калькулятор пеней по налогам — ст. 75 НК РФ, ставка ЦБ 1/300</title>
+<link rel="canonical" href="https://<PAGES_URL>/">
 <meta name="description" content="Бесплатный калькулятор пеней по налогам и взносам для физлиц и ИП по ст. 75 НК РФ: 1/300 ключевой ставки ЦБ за каждый день просрочки. Расчёт в браузере, данные не отправляются на сервер.">
-<link rel="stylesheet" href="styles.css">
+<!-- OpenGraph -->
+<meta property="og:title" content="Калькулятор пеней по налогам и взносам — ст. 75 НК РФ">
+<meta property="og:description" content="Бесплатный калькулятор пеней по налогам и взносам для физлиц и ИП по ст. 75 НК РФ: 1/300 ключевой ставки ЦБ за каждый день просрочки. Расчёт в браузере, данные не отправляются на сервер.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://<PAGES_URL>/">
+<meta property="og:locale" content="ru_RU">
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Калькулятор пеней по налогам и взносам — ст. 75 НК РФ">
+<meta name="twitter:description" content="Бесплатный калькулятор пеней по налогам и взносам для физлиц и ИП по ст. 75 НК РФ: 1/300 ключевой ставки ЦБ за каждый день просрочки.">
+<!-- JSON-LD: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Расчет пеней по ст. 75 НК РФ",
+  "description": "Расчет пеней за пользование чужими средствами с помощью ключевой ставки ЦБ РФ",
+  "totalTime": "PT5M",
+  "tool": "Калькулятор пеней",
+  "step": [
+    {
+      "name": "Введите сумму задолженности",
+      "text": "Укажите сумму долга в рублях"
+    },
+    {
+      "name": "Укажите дату начала просрочки",
+      "text": "Дата, с которой начисляютсяpeni"
+    },
+    {
+      "name": "Укажите дату уплаты",
+      "text": "Дата оплаты долга (включается в период)"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <main class="page">
   <h1>Калькулятор пеней по налогам и взносам</h1>
   <p class="lead">Для физических лиц и ИП: 1/300 ключевой ставки ЦБ РФ за каждый день просрочки (п. 4 ч. 1 ст. 75 НК&nbsp;РФ). Расчёт выполняется в вашем браузере — суммы и даты никуда не отправляются.</p>
-
   <form id="calc-form" autocomplete="off">
     <label>Задолженность, ₽
       <input id="arrears" inputmode="decimal" placeholder="например, 100000" required>
@@ -27,7 +61,6 @@
     <button type="submit">Рассчитать пени</button>
     <p class="hint">День уплаты входит в период. Ставка берётся из официальной истории ЦБ на каждый день.</p>
   </form>
-
   <section id="result" class="result" hidden aria-live="polite">
     <h2>Итог</h2>
     <p class="total"><span id="res-total">—</span></p>
@@ -41,7 +74,6 @@
     </table>
     <p class="disclaimer">Расчёт носит справочный характер и не является юридической консультацией. Использованная редакция нормы: ст. 75 НК РФ (ред. 2026). Проверьте актуальные реквизиты и основания до подачи документов.</p>
   </section>
-
   <section class="provenance">
     <h2>Источник данных</h2>
     <ul>
@@ -49,13 +81,11 @@
       <li>Свежесть: <span id="prov-ttl">—</span> (обновляем в течение суток после решения ЦБ)</li>
     </ul>
   </section>
-
   <nav class="crosslinks" aria-label="Смежные материалы">
     <a href="/klyuchevaya-stavka-cb/">История ключевой ставки</a>
     <a href="/peni-formula/">Методика расчёта (ст. 75 НК РФ)</a>
     <a href="/peni-faq/">Частые вопросы</a>
   </nav>
-
   <p id="fatal-msg" hidden class="error">Не удалось загрузить таблицу ставок. Калькулятор временно недоступен (fail-closed).</p>
 </main>
 <script type="module" src="js/app.js"></script>
