@@ -1,0 +1,45 @@
+/* MVP-1: чистая мобильная-first вёрстка, без внешних зависимостей (LCP < 2с). */
+:root {
+  --fg: #1a1d21; --muted: #5c6670; --accent: #0b57d0;
+  --border: #dde3e9; --bg: #ffffff; --card: #f6f8fa;
+  --ok-bg: #e7f4e8; --err-fg: #b3261e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--fg); background: var(--bg);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.page { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+h1 { font-size: 1.45rem; line-height: 1.25; margin: 0 0 .5rem; }
+h2 { font-size: 1.1rem; margin: 1.5rem 0 .5rem; }
+.lead { color: var(--muted); margin-top: 0; }
+
+form { display: grid; gap: 14px; padding: 16px; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--card); }
+label { display: grid; gap: 6px; font-size: .95rem; font-weight: 600; }
+input { padding: 10px 12px; font-size: 1rem; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--bg); width: 100%; }
+input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.dates { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .dates { grid-template-columns: 1fr 1fr; } }
+button { padding: 12px 20px; font-size: 1rem; font-weight: 600; color: #fff;
+  background: var(--accent); border: 0; border-radius: 8px; cursor: pointer; }
+button:hover { filter: brightness(1.08); }
+.hint { font-size: .85rem; color: var(--muted); margin: 0; font-weight: 400; }
+
+.result { margin-top: 20px; padding: 16px; border: 1px solid var(--border); border-radius: 12px; }
+.result-error { border-color: var(--err-fg); }
+.total { font-size: 2rem; font-weight: 700; margin: .2rem 0; }
+.error { color: var(--err-fg); }
+.breakdown { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.breakdown th, .breakdown td { text-align: left; padding: 6px 8px; border-top: 1px solid var(--border); vertical-align: top; }
+.breakdown caption { text-align: left; font-weight: 600; padding-bottom: 6px; }
+#res-rates { margin: 0; } 
+#res-rates td, #res-rates tr { border: 0; padding: 2px 10px 2px 0; }
+.disclaimer { font-size: .85rem; color: var(--muted); }
+
+.provenance ul { margin: .3rem 0; padding-left: 18px; color: var(--muted); font-size: .92rem; }
+.provenance a { color: var(--accent); }
+.ttl-ok { color: #1b7f3b; font-weight: 600; }
+.ttl-stale { color: var(--err-fg); font-weight: 600; }
+.crosslinks { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 24px; font-size: .95rem; }
+.crosslinks a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed currentColor; }
+.fatal body { visibility: hidden; }
