@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /#
-Disallow: /#
 
-Sitemap: https://<PAGES_URL>/sitemap.xml
+Sitemap: https://PAGES_URL/sitemap.xml

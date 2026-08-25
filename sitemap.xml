@@ -1,56 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"
-      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://<PAGES_URL>/</loc>
+    <loc>https://PAGES_URL/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://<PAGES_URL>/kalkulyator-gosposhlin</loc>
+    <loc>https://PAGES_URL/faq.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://<PAGES_URL>/kalkulyator-poshel</loc>
+    <loc>https://PAGES_URL/istoriya-klyuchevoy-stavki.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://<PAGES_URL>/kalkulyator-inflat</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/kalkulyator-gost</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/kalkulyator-arbitr</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/kalkulyator-fakt</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/kalkulyator-procent</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/kalkulyator-stavka</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/klyuchevaya-stavka-cb</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/peni-formula</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/peni-faq</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://<PAGES_URL>/metodika-raschyota</loc>
+    <loc>https://PAGES_URL/metodika-raschyota.html</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
