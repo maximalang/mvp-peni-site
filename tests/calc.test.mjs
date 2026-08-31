@@ -6,12 +6,18 @@ import { calculateTaxPenalty, CalcError } from '../js/calc.js';
 import { readFileSync } from 'node:fs';
 
 const rates = JSON.parse(readFileSync(new URL('../data/key-rates.json', import.meta.url), 'utf-8')).rows;
-const fixtures = JSON.parse(readFileSync(
-  new URL('../../mvp-1-readiness-2026-08-25/formula_fixtures.json', import.meta.url), 'utf-8')).fixtures;
+const fixtures = JSON.parse(readFileSync(new URL('./formula_fixtures.json', import.meta.url), 'utf-8')).fixtures;
 
 let pass = 0, fail = 0;
 for (const f of fixtures) {
-  const args = [rates, f.arrears_rub, f.first_delay_date, f.last_delay_date];
+  // Порт verify_fixtures.py: rates_override=duplicate_effective_date подмешивает
+  // дубль первой даты с последней ставкой, минуя парсер источника,
+  // чтобы проверить инвариант самого расчётного пути (fail closed).
+  let schedule = rates;
+  if (f.rates_override === 'duplicate_effective_date') {
+    schedule = [...rates, { d: rates[0].d, p: rates[rates.length - 1].p }];
+  }
+  const args = [schedule, f.arrears_rub, f.first_delay_date, f.last_delay_date];
   if (f.payer_type) args.push(f.payer_type);
   try {
     const res = calculateTaxPenalty(...args);

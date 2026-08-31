@@ -65,6 +65,13 @@ export function calculateTaxPenalty(rates, arrearsInput, firstDelay, lastDelay, 
   }
 
   const sorted = [...rates].sort((a, b) => (a.d < b.d ? -1 : a.d > b.d ? 1 : 0));
+  // Инвариант дубликатов: источник отклоняет повторы при парсинге, но функция
+  // принимает любой массив строк, поэтому проверяем и здесь (fail closed, не гадать).
+  for (let i = 1; i < sorted.length; i++) {
+    if (sorted[i].d === sorted[i - 1].d) {
+      throw new CalcError('source_integrity', 'duplicate effective dates in key-rate schedule');
+    }
+  }
   const firstDay = parseISO(sorted[0].d);
   const lastDay = parseISO(sorted[sorted.length - 1].d);
   if (start < firstDay || end > lastDay) {
