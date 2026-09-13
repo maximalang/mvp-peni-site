@@ -1,0 +1,108 @@
+{
+  "fixture_version": "mvp-1-2026-08-25",
+  "scope": "tax arrears for an individual or individual entrepreneur under Article 75(4)(1), inclusive user-supplied delay dates",
+  "rounding": "display total rounded to kopecks with ROUND_HALF_UP; exact sum is retained",
+  "fixtures": [
+    {
+      "id": "one_day_current_rate",
+      "kind": "positive",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-08-25",
+      "last_delay_date": "2026-08-25",
+      "expected_display_total_rub": "46.67",
+      "manual_check": "100000 × 14.00% / 300 × 1 = 46.666666... => 46.67"
+    },
+    {
+      "id": "three_days_same_rate",
+      "kind": "positive",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-08-21",
+      "last_delay_date": "2026-08-23",
+      "expected_display_total_rub": "140.00",
+      "manual_check": "100000 × 14.00% / 300 × 3 = 140.00"
+    },
+    {
+      "id": "rate_change_inside_period",
+      "kind": "positive",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-07-24",
+      "last_delay_date": "2026-07-27",
+      "expected_display_total_rub": "189.17",
+      "manual_check": "100000 × (14.25% × 3 + 14.00% × 1) / 300 = 189.166666... => 189.17"
+    },
+    {
+      "id": "weekend_uses_last_effective_rate",
+      "kind": "positive",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-08-22",
+      "last_delay_date": "2026-08-24",
+      "expected_display_total_rub": "140.00",
+      "manual_check": "22–23 Aug inherit 14.00% from 21 Aug; 24 Aug is 14.00%; 3 × 46.666666... = 140.00"
+    },
+    {
+      "id": "kopeck_rounding",
+      "kind": "positive",
+      "arrears_rub": "100",
+      "first_delay_date": "2026-08-25",
+      "last_delay_date": "2026-08-25",
+      "expected_display_total_rub": "0.05",
+      "manual_check": "100 × 14.00% / 300 = 0.046666... => 0.05"
+    },
+    {
+      "id": "oldest_source_date",
+      "kind": "positive",
+      "arrears_rub": "100000",
+      "first_delay_date": "2013-09-17",
+      "last_delay_date": "2013-09-17",
+      "expected_display_total_rub": "18.33",
+      "manual_check": "100000 × 5.50% / 300 = 18.333333... => 18.33"
+    },
+    {
+      "id": "before_snapshot_range",
+      "kind": "negative",
+      "arrears_rub": "100000",
+      "first_delay_date": "2013-09-16",
+      "last_delay_date": "2013-09-17",
+      "expected_error_code": "source_range",
+      "manual_check": "No CBR row exists before the snapshot minimum 2013-09-17"
+    },
+    {
+      "id": "after_snapshot_range",
+      "kind": "negative",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-08-25",
+      "last_delay_date": "2026-08-26",
+      "expected_error_code": "source_range",
+      "manual_check": "The snapshot ends at 2026-08-25; refresh is required instead of extrapolation"
+    },
+    {
+      "id": "reversed_dates",
+      "kind": "negative",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-08-27",
+      "last_delay_date": "2026-08-26",
+      "expected_error_code": "invalid_input",
+      "manual_check": "The inclusive interval is empty and must be rejected"
+    },
+    {
+      "id": "duplicate_schedule_rejected",
+      "kind": "negative",
+      "rates_override": "duplicate_effective_date",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-08-25",
+      "last_delay_date": "2026-08-25",
+      "expected_error_code": "source_integrity",
+      "manual_check": "Two KeyRate rows with the same effective date must fail closed even when passed directly to calculate_tax_penalty"
+    },
+    {
+      "id": "organization_out_of_scope",
+      "kind": "negative",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-08-25",
+      "last_delay_date": "2026-08-25",
+      "payer_type": "organization",
+      "expected_error_code": "unsupported_scope",
+      "manual_check": "Organization rules in Article 75(5.1) have 30/90-day tiers and are not in MVP-1"
+    }
+  ]
+}
