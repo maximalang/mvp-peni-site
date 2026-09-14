@@ -1,9 +1,18 @@
 // UI-обвязка калькулятора пеней. Только клиент: никаких запросов с данными пользователя (W1).
+// Измерение successful_organic_calculations_28d — first-party, consent-safe: событие
+// пишется только на успешный расчёт, поля ограничены allowlist (js/measure.js),
+// суммы/даты/идентификаторы пользователя не собираются, отправки на сервер нет.
 'use strict';
 
 import { calculateTaxPenalty } from './calc.js';
+import { createMeasure, classifyReferrer, safeStorage } from './measure.js';
 
 const $ = (sel) => document.querySelector(sel);
+
+// Attribution фиксируется один раз на загрузку страницы (landing), а не на каждое
+// событие: referrer относится к органическому приземлению на страницу.
+const measure = createMeasure({ storage: safeStorage(globalThis) });
+const PAGE_ATTRIBUTION = classifyReferrer(globalThis.document?.referrer);
 
 const ERROR_TEXT = {
   invalid_input: 'Проверьте поля: сумма больше нуля, дата начала не позже даты окончания.',
@@ -53,6 +62,11 @@ async function boot() {
         formatDate(d1) + ' — ' + formatDate(d2);
       out.hidden = false;
       out.className = 'result';
+      // Измерение: event только на успешный расчёт; не содержит данных ввода (allowlist).
+      // Изолированный try/catch: отказ измерения не должен красить успешный результат ошибкой.
+      try {
+        measure.record({ calculator: 'tax_penalty', attribution: PAGE_ATTRIBUTION });
+      } catch { /* measurement degradation is silent */ }
       navigator.clipboard?.writeText(
         `Пени по ст. 75 НК РФ: ${res.display_total_rub} руб. ` +
         `(задолженность ${res.arrears_rub} руб., период ${d1}..${d2}, ${res.days_inclusive} дн.)`

@@ -1,6 +1,6 @@
 # Project State — SEO Utility Site
 
-Updated: 2026-08-30 RTZ
+Updated: 2026-09-13 RTZ
 
 ## Phase
 
@@ -9,6 +9,13 @@ Pre-launch / local MVP. Not published and not approved for paid acquisition or b
 ## Primary metric
 
 `successful_organic_calculations_28d = 0` (no verified production deployment).
+
+Measurement is now implemented first-party and consent-safe (decision 2026-09-13, see
+`decisions/2026-09-13-first-party-organic-measurement.md`): event on successful calculation
+only; fields `ts/v/calc/attr/ok/did/syn`; anonymous dedupe id in first-party localStorage;
+no amounts, dates, PII, cookies, third parties, or server sends. Synthetic readback events
+are separated from the business numerator. Readback harness: `node tools/readback_measure.mjs`.
+The metric stays 0 until a verified live deployment produces real organic events.
 
 ## Existing artifact
 
@@ -21,10 +28,14 @@ Pre-launch / local MVP. Not published and not approved for paid acquisition or b
 
 Command: `node --test tests/*.test.mjs`
 
-- Exit code: `1`
-- Calculator fixtures: `10/11` passed.
-- Failure: `duplicate_schedule_rejected` expected `source_integrity` but returned a calculation.
+- Exit code: `0`
+- Calculator fixtures: `11/11` passed (duplicate-schedule fail-closed restored in `dbcde68`).
+- Measurement suite: `19/19` passed (privacy allowlist, dedupe id, organic attribution, 28d window, synthetic separation, storage cap, hostile-storage degradation).
 - SEO test suite: passed for four HTML pages, sitemap, and robots.
+
+Command: `node tools/readback_measure.mjs --synthetic 1`
+
+- Exit code: `0`; synthetic/business separation assertions PASS.
 
 Command: `python -m py_compile tools/refresh_rates.py`
 
@@ -32,11 +43,10 @@ Command: `python -m py_compile tools/refresh_rates.py`
 
 ## Active risks/blockers
 
-1. **Publication blocker:** duplicate/ambiguous source schedule is not currently rejected fail-closed.
-2. Independent QA has not accepted the exact corrected commit.
-3. Publication gates remain open for source-use/legal wording, privacy boundary, real hostname/canonicals, deployment smoke, rollback, and backup.
-4. There is no verified live URL, indexation evidence, organic traffic, completed-calculation metric, or revenue evidence.
+1. Publication gates remain open for source-use/legal wording, real hostname/canonicals, deployment smoke, rollback, and backup.
+2. Independent QA has not yet accepted the measurement commit (child card t_1146fd0b).
+3. There is no verified live URL, indexation evidence, organic traffic, or non-zero metric evidence yet.
 
 ## Next action
 
-`tech` fixes the duplicate-schedule source-integrity regression without weakening other fixtures; `qa` then reruns the exact-head calculator, SEO, privacy, and rendered smoke checks. Publication stays blocked until both tasks pass.
+`qa` accepts the measurement commit on its exact head (tests + readback harness + privacy boundary); then publication gates proceed per `docs/cloudflare-pages-deploy.md`. After a verified live deployment, run the readback check with a synthetic event to confirm separation in production.
