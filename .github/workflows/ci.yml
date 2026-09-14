@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate Python helper syntax
+        run: python -m py_compile tools/refresh_rates.py
+      - name: Run calculator, SEO, and measurement tests
+        run: node --test
+      - name: Verify synthetic measurement readback
+        run: node tools/readback_measure.mjs
