@@ -4,7 +4,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const BASE_URL = 'https://PAGES_URL';
+const BASE_URL = 'https://peni.recruiter-radar.ru';
 const PAGE_FILES = readdirSync(ROOT)
   .filter((name) => name.endsWith('.html'))
   .sort((a, b) => (a === 'index.html' ? -1 : b === 'index.html' ? 1 : a.localeCompare(b)));
@@ -155,7 +155,7 @@ assert.match(
   /<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/,
   'sitemap.xml: standard sitemap namespace is missing',
 );
-assert.doesNotMatch(sitemap, /<PAGES_URL>|<\/PAGES_URL>/, 'sitemap.xml: XML-unsafe placeholder remains');
+assert.doesNotMatch(sitemap, /PAGES_URL/, 'sitemap.xml: placeholder remains');
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 const expectedSitemapUrls = PAGE_FILES.map(expectedUrlFor);
 assert.equal(sitemapUrls.length, expectedSitemapUrls.length, 'sitemap.xml: URL count differs from HTML page count');
@@ -163,13 +163,13 @@ assert.deepEqual([...new Set(sitemapUrls)].sort(), [...expectedSitemapUrls].sort
 for (const url of sitemapUrls) {
   const parsed = new URL(url);
   assert.equal(parsed.protocol, 'https:', `sitemap.xml: ${url} is not HTTPS`);
-  assert.equal(parsed.hostname, 'pages_url', `sitemap.xml: ${url} has an unexpected placeholder host`);
+  assert.equal(parsed.hostname, 'peni.recruiter-radar.ru', `sitemap.xml: ${url} has an unexpected host`);
 }
-console.log(`PASS sitemap.xml: ${sitemapUrls.length} existing HTML URLs, standard namespace, XML-safe placeholder`);
+console.log(`PASS sitemap.xml: ${sitemapUrls.length} existing HTML URLs, standard namespace, production hostname`);
 
 const robots = readFileSync(join(ROOT, 'robots.txt'), 'utf8');
-assert.match(robots, /^Sitemap:\s+https:\/\/PAGES_URL\/sitemap\.xml\s*$/m, 'robots.txt: sitemap link is missing or incorrect');
-assert.doesNotMatch(robots, /[<>]/, 'robots.txt: unsafe placeholder remains');
+assert.match(robots, /^Sitemap:\s+https:\/\/peni\.recruiter-radar\.ru\/sitemap\.xml\s*$/m, 'robots.txt: sitemap link is missing or incorrect');
+assert.doesNotMatch(robots, /[<>]|PAGES_URL/, 'robots.txt: unsafe placeholder remains');
 console.log('PASS robots.txt: sitemap directive present and placeholder is syntax-safe');
 
 console.log(`SEO gate PASS: ${PAGE_FILES.length} HTML pages + sitemap.xml + robots.txt`);
