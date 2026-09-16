@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://PAGES_URL/sitemap.xml
+Sitemap: https://peni.recruiter-radar.ru/sitemap.xml
