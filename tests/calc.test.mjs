@@ -17,7 +17,19 @@ for (const f of fixtures) {
   if (f.rates_override === 'duplicate_effective_date') {
     schedule = [...rates, { d: rates[0].d, p: rates[rates.length - 1].p }];
   }
-  const args = [schedule, f.arrears_rub, f.first_delay_date, f.last_delay_date];
+  // dates_relative: границы вычисляются из фактического снапшота, чтобы refresh
+  // данных не «протухал» фикстуры (after_snapshot_range был захардкожен на 2026-08-25).
+  let first = f.first_delay_date;
+  let last = f.last_delay_date;
+  if (f.dates_relative === 'after_last_row') {
+    const sortedDs = rates.map((r) => r.d).sort();
+    const lastRow = sortedDs[sortedDs.length - 1];
+    const next = new Date(lastRow + 'T00:00:00Z');
+    next.setUTCDate(next.getUTCDate() + 1);
+    first = lastRow;
+    last = next.toISOString().slice(0, 10);
+  }
+  const args = [schedule, f.arrears_rub, first, last];
   if (f.payer_type) args.push(f.payer_type);
   try {
     const res = calculateTaxPenalty(...args);
