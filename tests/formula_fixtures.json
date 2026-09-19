@@ -70,10 +70,9 @@
       "id": "after_snapshot_range",
       "kind": "negative",
       "arrears_rub": "100000",
-      "first_delay_date": "2026-08-25",
-      "last_delay_date": "2026-08-26",
+      "dates_relative": "after_last_row",
       "expected_error_code": "source_range",
-      "manual_check": "The snapshot ends at 2026-08-25; refresh is required instead of extrapolation"
+      "manual_check": "The day after the snapshot's last row must be rejected; the boundary is computed from data/key-rates.json at run time so a refresh cannot stale the fixture"
     },
     {
       "id": "reversed_dates",
