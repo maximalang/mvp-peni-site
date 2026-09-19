@@ -1,0 +1,91 @@
+name: Auto-refresh CBR key rates
+
+# Ежедневное обновление снапшота ключевой ставки ЦБ через tools/refresh_rates.py.
+# Коды выхода скрипта: 0 = ok (NO_CHANGE или UPDATED) | 2 = fixture fail (откачено)
+# | 3 = history drift | 4 = сеть/схема. Любой ненулевой выход валит job громко.
+
+on:
+  schedule:
+    # Ежедневно ~08:00 UTC (GitHub Actions cron всегда в UTC).
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-refresh-key-rates
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate helper syntax
+        run: python -m py_compile tools/refresh_rates.py
+
+      - name: Refresh rates (NO_CHANGE -> quiet exit 0; exit 2/3/4 -> loud failure)
+        id: refresh
+        run: |
+          set -o pipefail
+          python tools/refresh_rates.py | tee "$RUNNER_TEMP/refresh_output.txt"
+          {
+            echo "updated=$(grep -c '^UPDATED' "$RUNNER_TEMP/refresh_output.txt" || true)"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Staleness guard (captured_at older than 3 days -> warn, no fail)
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          doc = json.loads(Path("data/key-rates.json").read_text(encoding="utf-8"))
+          captured = datetime.strptime(doc["captured_at"], "%Y-%m-%dT%H-%M-%SZ").replace(tzinfo=timezone.utc)
+          age_days = (datetime.now(timezone.utc) - captured).total_seconds() / 86400
+          line = "captured_at=%s age_days=%.2f" % (doc["captured_at"], age_days)
+          if age_days > 3:
+              print("STALE_SNAPSHOT_WARNING %s (> 3 days)" % line)
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as fh:
+                  fh.write("## :warning: Stale CBR key-rate snapshot\n\n")
+                  fh.write("`captured_at` = `%s` (age %.1f days, threshold 3).\n" % (doc["captured_at"], age_days))
+                  fh.write("Refresh did not fail the workflow — investigate manually.\n")
+          else:
+              print("SNAPSHOT_FRESH %s" % line)
+          PY
+
+      - name: Create branch and PR when data was updated
+        if: success() && steps.refresh.outputs.updated != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="ops/auto-refresh-key-rates-$(date -u +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add data/key-rates.json
+          git commit -m "ops: auto-refresh CBR key rates ($(date -u +%Y-%m-%d))" \
+            -m "Automated refresh by tools/refresh_rates.py (workflow auto-refresh-key-rates)."
+          if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+            echo "PR-source branch $BRANCH already exists on origin; skipping duplicate PR (kill criterion guard)"
+            exit 0
+          fi
+          git push origin "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "ops: auto-refresh CBR key rates ($(date -u +%Y-%m-%d))" \
+            --body "Automated daily refresh by \`tools/refresh_rates.py\` (workflow \`auto-refresh-key-rates\`). Fixtures passed before commit."
