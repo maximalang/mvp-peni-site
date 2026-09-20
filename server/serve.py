@@ -49,7 +49,10 @@ class MeasureHandler(BaseHTTPRequestHandler):
         Любой путь вне _LOGGED_ROUTES (включая raw query с чувствительными
         значениями) заменяется нейтральным placeholder — приват-граница журнала.
         """
-        path = self.path.split("?", 1)[0] if self.path else ""
+        # При сбое parse_request self.path ещё не установлен (CPython шлёт 400
+        # через send_error до его присвоения) — берём через getattr, иначе
+        # log_request падает с AttributeError и клиент не получает ответ.
+        path = (getattr(self, "path", "") or "").split("?", 1)[0]
         return path if path in _LOGGED_ROUTES else _REDACTED_ROUTE
 
     def log_request(self, code="-", size="-"):
@@ -66,6 +69,14 @@ class MeasureHandler(BaseHTTPRequestHandler):
         # Control characters are escaped exactly как в CPython log_message.
         message = (fmt % args).translate(self._control_char_table)
         sys.stderr.write("[measure] " + message + "\n")
+
+    def send_error(self, code, message=None, explain=None):
+        # QA F-1 (error-path): вызовы CPython send_error передают в message
+        # raw requestline ("Bad request syntax (%r)" % requestline), который
+        # через log_error попадает в журнал и в тело ответа. Отбрасываем
+        # message/explain: код + штатный shortmsg достаточны для диагностики,
+        # приват-граница журнала закрыта и для битых запросов.
+        super().send_error(code)
 
     # -- helpers ----------------------------------------------------------
     def _send_json(self, status, obj, allow_header=None):

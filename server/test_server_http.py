@@ -15,6 +15,7 @@
 import io
 import json
 import os
+import socket
 import sys
 import tempfile
 import threading
@@ -253,6 +254,35 @@ class HttpServerTest(unittest.TestCase):
         logs = captured.getvalue()
         self.assertNotIn('deadbeef', logs)
         self.assertIn('"GET /api/healthz" 200', logs)
+
+    def test_malformed_requestline_not_logged_and_400(self):
+        # QA F-1 (error-path): битый request-line CPython раньше включал
+        # verbatim в message send_error (log_error → stderr). Теперь raw
+        # текст в журнал не попадает, а клиент всё равно получает 400 —
+        # без падения логгера на не установленном self.path.
+        captured = io.StringIO()
+        response = b''
+        with redirect_stderr(captured):
+            with socket.create_connection(
+                    ('127.0.0.1', self.port), timeout=10) as sock:
+                sock.sendall(b'/api/healthz?marker_b=2\r\n\r\n')
+                sock.settimeout(5)
+                try:
+                    while True:
+                        chunk = sock.recv(4096)
+                        if not chunk:
+                            break
+                        response += chunk
+                except socket.timeout:
+                    pass
+        logs = captured.getvalue()
+        self.assertNotIn('marker_b', logs)
+        self.assertNotIn('/api/healthz?marker_b', logs)
+        status_line = response.split(b'\r\n', 1)[0].decode('utf-8', 'replace')
+        self.assertIn('400', status_line)
+        # сервер жив: следующий корректный запрос обслуживается
+        status, _, _ = self.get('/api/healthz')
+        self.assertEqual(status, 200)
 
 
 if __name__ == '__main__':
