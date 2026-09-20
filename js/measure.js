@@ -4,11 +4,14 @@
 // Жёсткие границы:
 //  - allowlist полей: всё, что не в EVENT_FIELDS, отбрасывается (никаких сумм, дат, PII);
 //  - referrer классифицируется в категорию, сам URL никогда не сохраняется;
-//  - только first-party localStorage: ни cookies, ни третьих сторон, ни отправки на сервер;
+//  - first-party: только localStorage этого сайта + опциональный fire-and-forget beacon
+//    на СВОЙ endpoint /api/event (server-side агрегация, t_543102d7). Никаких cookies,
+//    третьих сторон и cross-origin запросов;
 //  - synthetic-события считаются отдельно и НЕ входят в business-числитель;
-//  - отказ measurement не должен ломать калькулятор (вызывающий код оборачивает в try/catch).
+//  - отказ measurement не должен ломать калькулятор (вызывающий код оборачивает в try/catch);
+//  - отказ beacon-отправки тоже не ломает ничего: localStorage-путь всегда сохраняется.
 // Откат: модуль изолирован, интеграция в app.js — одна точка; git revert полностью удаляет
-// измерение, данных на сервере нет, миграции не нужны (deploy-safe rollback).
+// измерение. Серверный beacon отключается отдельно (transport не передаётся в createMeasure).
 'use strict';
 
 export const MEASURE_VERSION = 1;
@@ -16,6 +19,7 @@ export const STORAGE_KEY = 'peni.calc_events.v1';
 export const DID_KEY = 'peni.device_id.v1';
 export const MAX_EVENTS = 500; // ring-buffer cap: защита от бесконечного роста (LLM10-аналог)
 export const WINDOW_MS = 28 * 24 * 60 * 60 * 1000;
+export const DEFAULT_ENDPOINT = '/api/event'; // same-origin first-party counter
 
 // Разрешённые поля события. Всё остальное вырезается при записи и при чтении.
 export const EVENT_FIELDS = ['ts', 'v', 'calc', 'attr', 'ok', 'did', 'syn'];
@@ -79,10 +83,45 @@ function newId(randomId) {
 }
 
 /**
- * createMeasure({ storage, now, randomId }) — фабрика без зависимостей от DOM (тестируемо в node).
- * now: () -> epoch ms (инжектируемые часы для детерминированных тестов окна 28d).
+ * beaconTransport(globalObj, endpoint) — fire-and-forget отправка события на
+ * СВОЙ first-party endpoint (server-side агрегация). Privacy-границы:
+ *  - mode same-origin + credentials omit: ни cookies, ни cross-origin запросов;
+ *  - text/plain payload: без CORS-preflight, без лишних заголовков;
+ *  - тело — ровно то же allowlist-событие, что и в localStorage (sanitizeEvent);
+ *  - любая ошибка глотается: отказ отправки не ломает ни измерение, ни UX.
+ * Возвращает функцию transport(event); передаётся в createMeasure({ transport }).
  */
-export function createMeasure({ storage, now = () => Date.now(), randomId } = {}) {
+export function beaconTransport(globalObj, endpoint = DEFAULT_ENDPOINT) {
+  return function transport(event) {
+    try {
+      const body = JSON.stringify(event);
+      const nav = globalObj && globalObj.navigator;
+      if (nav && typeof nav.sendBeacon === 'function' && globalObj.Blob) {
+        nav.sendBeacon(endpoint, new globalObj.Blob([body], { type: 'text/plain;charset=UTF-8' }));
+        return;
+      }
+      if (globalObj && typeof globalObj.fetch === 'function') {
+        const p = globalObj.fetch(endpoint, {
+          method: 'POST',
+          body,
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          keepalive: true,
+          mode: 'same-origin',
+          credentials: 'omit',
+        });
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      }
+    } catch { /* silent degradation */ }
+  };
+}
+
+/**
+ * createMeasure({ storage, now, randomId, transport }) — фабрика без зависимостей от DOM (тестируемо в node).
+ * now: () -> epoch ms (инжектируемые часы для детерминированных тестов окна 28d).
+ * transport: (event) -> void — опциональная fire-and-forget отправка на server-side
+ * counter (/api/event); localStorage-путь сохраняется всегда и от транспорта не зависит.
+ */
+export function createMeasure({ storage, now = () => Date.now(), randomId, transport } = {}) {
   if (!storage) throw new Error('measure: storage is required');
 
   function readLog() {
@@ -148,6 +187,14 @@ export function createMeasure({ storage, now = () => Date.now(), randomId } = {}
     const log = readLog();
     log.push(event);
     writeLog(log);
+    // Server-side агрегация (t_543102d7): тот же allowlist-набор полей уходит
+    // fire-and-forget на свой /api/event. Отказ/исключение транспорта не
+    // отменяет локальную запись и не всплывает наружу.
+    if (typeof transport === 'function') {
+      try {
+        transport(event);
+      } catch { /* beacon degradation is silent */ }
+    }
     return event;
   }
 

@@ -10,11 +10,13 @@ import {
   createMeasure,
   classifyReferrer,
   safeStorage,
+  beaconTransport,
   EVENT_FIELDS,
   STORAGE_KEY,
   DID_KEY,
   MAX_EVENTS,
   MEASURE_VERSION,
+  DEFAULT_ENDPOINT,
 } from '../js/measure.js';
 
 const T0 = Date.parse('2026-09-13T12:00:00Z');
@@ -246,4 +248,114 @@ test('DID_KEY и STORAGE_KEY различаются; clear() удаляет то
   assert.equal(storage.getItem(STORAGE_KEY), null);
   assert.equal(storage.getItem(DID_KEY), didBefore); // dedupe id переживает очистку лога
   assert.equal(m.readback().successful_organic_calculations_28d, 0);
+});
+
+// --- server-side beacon (t_543102d7) ---------------------------------------
+
+function captureTransport() {
+  const sent = [];
+  return { sent, transport: (event) => sent.push(structuredClone(event)) };
+}
+
+test('beacon: record отправляет ровно allowlist-событие в transport', () => {
+  const { now } = makeNow();
+  const { sent, transport } = captureTransport();
+  const m = createMeasure({ storage: safeStorage({}), now, transport });
+  const ev = m.record({ calculator: 'tax_penalty', attribution: 'organic' });
+  assert.equal(sent.length, 1);
+  assert.deepEqual(sent[0], ev);
+  assert.deepEqual(Object.keys(sent[0]).sort(), [...EVENT_FIELDS].sort());
+});
+
+test('beacon: PII/суммы не уходят в transport даже при hostile вызове', () => {
+  const { now } = makeNow();
+  const { sent, transport } = captureTransport();
+  const m = createMeasure({ storage: safeStorage({}), now, transport });
+  m.record({
+    calculator: 'tax_penalty',
+    attribution: 'organic',
+    arrears_rub: '100000',
+    first_delay_date: '2026-01-01',
+    ip: '1.2.3.4',
+    userAgent: 'x',
+  });
+  const blob = JSON.stringify(sent);
+  assert.ok(!blob.includes('100000'));
+  assert.ok(!blob.includes('2026-01-01'));
+  assert.ok(!blob.includes('1.2.3.4'));
+  assert.ok(!blob.includes('userAgent'));
+});
+
+test('beacon: localStorage-путь сохраняется при отказе transport (fire-and-forget)', () => {
+  const { now } = makeNow();
+  const storage = safeStorage({});
+  const m = createMeasure({
+    storage,
+    now,
+    transport: () => { throw new Error('network down'); },
+  });
+  const ev = m.record({ calculator: 'tax_penalty', attribution: 'organic' }); // не бросает
+  assert.equal(ev.calc, 'tax_penalty');
+  assert.equal(m.readback().successful_organic_calculations_28d, 1);
+  assert.equal(JSON.parse(storage.getItem(STORAGE_KEY)).length, 1);
+});
+
+test('beacon: без transport модуль ведёт себя как раньше (обратная совместимость)', () => {
+  const { now } = makeNow();
+  const { m } = freshMeasure(now);
+  m.record({ calculator: 'tax_penalty', attribution: 'organic' });
+  assert.equal(m.readback().successful_organic_calculations_28d, 1);
+});
+
+test('beaconTransport: sendBeacon вызывается с same-origin endpoint и text/plain', async () => {
+  const calls = [];
+  class FakeBlob {
+    constructor(parts, opts) { this.parts = parts; this.opts = opts; }
+  }
+  const fakeGlobal = {
+    Blob: FakeBlob,
+    navigator: {
+      sendBeacon: (url, blob) => { calls.push({ url, blob }); return true; },
+    },
+  };
+  const transport = beaconTransport(fakeGlobal);
+  const event = { ts: '2026-09-20T12:00:00.000Z', v: 1, calc: 'tax_penalty', attr: 'organic', ok: true, did: 'd', syn: false };
+  transport(event);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, DEFAULT_ENDPOINT);
+  assert.ok(!calls[0].url.includes('://'), 'endpoint same-origin (без scheme/host)');
+  assert.equal(calls[0].blob.opts.type, 'text/plain;charset=UTF-8');
+  assert.deepEqual(JSON.parse(calls[0].blob.parts[0]), event);
+});
+
+test('beaconTransport: fallback fetch keepalive + credentials omit + mode same-origin', async () => {
+  const calls = [];
+  const fakeGlobal = {
+    fetch: (url, init) => { calls.push({ url, init }); return Promise.resolve({ ok: true }); },
+    navigator: {}, // sendBeacon отсутствует — fallback на fetch
+  };
+  beaconTransport(fakeGlobal)({ ts: 'x', v: 1, calc: 'tax_penalty', attr: 'direct', ok: true, did: 'd', syn: false });
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, DEFAULT_ENDPOINT);
+  assert.equal(calls[0].init.method, 'POST');
+  assert.equal(calls[0].init.keepalive, true);
+  assert.equal(calls[0].init.mode, 'same-origin');
+  assert.equal(calls[0].init.credentials, 'omit');
+});
+
+test('beaconTransport: rejected fetch проглатывается (unhandled rejection нет)', async () => {
+  const fakeGlobal = {
+    fetch: () => Promise.reject(new Error('offline')),
+    navigator: {},
+  };
+  beaconTransport(fakeGlobal)({ ts: 'x', v: 1, calc: 'tax_penalty', attr: 'direct', ok: true, did: 'd', syn: false });
+  await new Promise((r) => setTimeout(r, 10)); // даём микрозадачам отработать
+  assert.ok(true); // если rejection не обработан, node --test упадёт
+});
+
+test('beaconTransport: hostile global (нет fetch/sendBeacon) деградирует молча', () => {
+  assert.doesNotThrow(() => beaconTransport({})({ ts: 'x' }));
+  assert.doesNotThrow(() => beaconTransport(undefined)({ ts: 'x' }));
+  assert.doesNotThrow(() =>
+    beaconTransport({ navigator: { sendBeacon: () => { throw new Error('boom'); } } })({ ts: 'x' }));
 });

@@ -2,3 +2,7 @@ node_modules/
 .DS_Store
 __pycache__/
 *.pyc
+# локальные БД measurement-сервера (данные не версионируются)
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm

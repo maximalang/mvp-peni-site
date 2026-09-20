@@ -1,17 +1,22 @@
-// UI-обвязка калькулятора пеней. Только клиент: никаких запросов с данными пользователя (W1).
+// UI-обвязка калькулятора пеней. Только клиент: суммы и даты пользователя никуда не уходят (W1).
 // Измерение successful_organic_calculations_28d — first-party, consent-safe: событие
 // пишется только на успешный расчёт, поля ограничены allowlist (js/measure.js),
-// суммы/даты/идентификаторы пользователя не собираются, отправки на сервер нет.
+// суммы/даты/идентификаторы пользователя не собираются. Анонимный счётчик события
+// дополнительно уходит fire-and-forget на СВОЙ endpoint /api/event (server-side
+// агрегация, t_543102d7) — без cookies и сторонних сервисов; отказ отправки ничего не ломает.
 'use strict';
 
 import { calculateTaxPenalty } from './calc.js';
-import { createMeasure, classifyReferrer, safeStorage } from './measure.js';
+import { createMeasure, classifyReferrer, safeStorage, beaconTransport } from './measure.js';
 
 const $ = (sel) => document.querySelector(sel);
 
 // Attribution фиксируется один раз на загрузку страницы (landing), а не на каждое
 // событие: referrer относится к органическому приземлению на страницу.
-const measure = createMeasure({ storage: safeStorage(globalThis) });
+const measure = createMeasure({
+  storage: safeStorage(globalThis),
+  transport: beaconTransport(globalThis),
+});
 const PAGE_ATTRIBUTION = classifyReferrer(globalThis.document?.referrer);
 
 const ERROR_TEXT = {
