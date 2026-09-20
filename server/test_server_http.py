@@ -210,6 +210,50 @@ class HttpServerTest(unittest.TestCase):
         self.assertNotIn('127.0.0.1', logs)
         self.assertNotIn('Client', logs)
 
+    def test_raw_query_string_never_logged(self):
+        # QA F-1: чувствительные значения вне allowlist в query string
+        # не должны попадать в stderr-журнал; маршрут нормализуется.
+        captured = io.StringIO()
+        with redirect_stderr(captured):
+            self.get('/api/metric?days=7&ssn=123-45-6789&phone=***')
+            self.get('/api/event?token=***')
+            self.get('/api/nope?password=***')
+            self.post('/api/nope?apikey=***', valid_event(seq=301))
+        logs = captured.getvalue()
+        for secret in ('123-45-6789', '+799****4567', 'abc123secret',
+                       'hunter2', 'sekret-key-xyz'):
+            self.assertNotIn(secret, logs)
+        # нормализованные allowlisted-маршруты присутствуют без query
+        self.assertIn('"GET /api/metric" 200', logs)
+        self.assertIn('"GET /api/event" 405', logs)
+        # вне allowlist — нейтральный placeholder
+        self.assertIn(f'"GET {serve._REDACTED_ROUTE}" 404', logs)
+        self.assertIn(f'"POST {serve._REDACTED_ROUTE}" 404', logs)
+
+    def test_log_control_chars_escaped_like_cpython(self):
+        # QA F-1: control characters экранируются как в CPython log_message
+        handler = object.__new__(serve.MeasureHandler)
+        captured = io.StringIO()
+        with redirect_stderr(captured):
+            serve.MeasureHandler.log_message(
+                handler, '"GET %s" 200 -', '/api/metric?x=\x00\x01y\x7f')
+        logs = captured.getvalue()
+        self.assertNotIn('\x00', logs)
+        self.assertNotIn('\x01', logs)
+        self.assertNotIn('\x7f', logs)
+        self.assertIn(r'\x00\x01y\x7f', logs)
+
+    def test_log_request_uses_method_and_route_only(self):
+        # QA F-1: requestline (с raw query) не используется в access-логе
+        status, _, _ = self.get('/api/healthz?trace=deadbeef')
+        self.assertEqual(status, 200)
+        captured = io.StringIO()
+        with redirect_stderr(captured):
+            self.get('/api/healthz?trace=deadbeef')
+        logs = captured.getvalue()
+        self.assertNotIn('deadbeef', logs)
+        self.assertIn('"GET /api/healthz" 200', logs)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -359,3 +359,43 @@ test('beaconTransport: hostile global (нет fetch/sendBeacon) деградир
   assert.doesNotThrow(() =>
     beaconTransport({ navigator: { sendBeacon: () => { throw new Error('boom'); } } })({ ts: 'x' }));
 });
+
+test('beaconTransport: sendBeacon false → fallback fetch keepalive (QA F-2)', () => {
+  // MDN Navigator.sendBeacon#return_value: false = данные НЕ поставлены в очередь.
+  const calls = [];
+  class FakeBlob {
+    constructor(parts, opts) { this.parts = parts; this.opts = opts; }
+  }
+  const event = { ts: '2026-09-20T12:00:00.000Z', v: 1, calc: 'tax_penalty', attr: 'organic', ok: true, did: 'd', syn: false };
+  const fakeGlobal = {
+    Blob: FakeBlob,
+    navigator: { sendBeacon: () => false }, // очередь переполнена / отклонено
+    fetch: (url, init) => { calls.push({ url, init }); return Promise.resolve({ ok: true }); },
+  };
+  beaconTransport(fakeGlobal)(event);
+  assert.equal(calls.length, 1, 'fetch fallback вызван ровно один раз');
+  assert.equal(calls[0].url, DEFAULT_ENDPOINT);
+  assert.equal(calls[0].init.method, 'POST');
+  assert.equal(calls[0].init.keepalive, true);
+  assert.equal(calls[0].init.mode, 'same-origin');
+  assert.equal(calls[0].init.credentials, 'omit');
+  assert.deepEqual(JSON.parse(calls[0].init.body), event);
+});
+
+test('beaconTransport: sendBeacon true → fetch НЕ вызывается (QA F-2, без дублей)', () => {
+  const fetchCalls = [];
+  const beaconCalls = [];
+  class FakeBlob {
+    constructor(parts, opts) { this.parts = parts; this.opts = opts; }
+  }
+  const fakeGlobal = {
+    Blob: FakeBlob,
+    navigator: {
+      sendBeacon: (url, blob) => { beaconCalls.push({ url, blob }); return true; },
+    },
+    fetch: (url, init) => { fetchCalls.push({ url, init }); return Promise.resolve({ ok: true }); },
+  };
+  beaconTransport(fakeGlobal)({ ts: '2026-09-20T12:00:00.000Z', v: 1, calc: 'tax_penalty', attr: 'organic', ok: true, did: 'd', syn: false });
+  assert.equal(beaconCalls.length, 1);
+  assert.equal(fetchCalls.length, 0, 'sendBeacon успешен — второй отправки нет');
+});

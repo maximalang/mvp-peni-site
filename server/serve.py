@@ -10,8 +10,10 @@ Endpoints (same-origin behind the existing reverse proxy):
 Privacy/hardening notes:
 - no CORS headers on purpose: the site is same-origin through the proxy, and
   without ACAO browsers block cross-origin reads; OPTIONS is answered 405;
-- request logs contain method/path/status only - client IPs are never written
-  by this service (the event store has no IP/UA columns at all);
+- request logs contain method + normalized allowlisted route + status only:
+  the raw query string is never logged (values outside the allowlist must not
+  leak into stderr), control characters are escaped as in CPython, and client
+  IPs are never written by this service (the event store has no IP/UA columns);
 - request body capped at MAX_BODY_BYTES (413), malformed JSON is 400;
 - every response is JSON with explicit Content-Length (keep-alive safe).
 Run example (see README.md): python3 serve.py --bind 127.0.0.1 --port 8101
@@ -23,20 +25,47 @@ import signal
 import sys
 import threading
 import urllib.parse
+from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import measure_core as core
 
 MAX_BODY_BYTES = 4096
 
+# Единственные маршруты, которые могут появиться в access-логе. Всё прочее
+# (включая любой raw query string) нормализуется в нейтральный placeholder:
+# чувствительные значения вне allowlist не должны попадать в журнал (QA F-1).
+_LOGGED_ROUTES = frozenset(("/api/event", "/api/metric", "/api/healthz"))
+_REDACTED_ROUTE = "/api/__redacted__"
+
 
 class MeasureHandler(BaseHTTPRequestHandler):
     server_version = "peni-measure/1"
     protocol_version = "HTTP/1.1"
 
+    def _safe_route(self):
+        """Нормализованный маршрут для лога: только allowlist, без query string.
+
+        Любой путь вне _LOGGED_ROUTES (включая raw query с чувствительными
+        значениями) заменяется нейтральным placeholder — приват-граница журнала.
+        """
+        path = self.path.split("?", 1)[0] if self.path else ""
+        return path if path in _LOGGED_ROUTES else _REDACTED_ROUTE
+
+    def log_request(self, code="-", size="-"):
+        # QA F-1: не логируем self.requestline (в нём raw query string).
+        # Только метод + нормализованный allowlisted route + status/size.
+        if isinstance(code, HTTPStatus):
+            code = code.value
+        method = self.command or "-"
+        self.log_message('"%s %s" %s %s',
+                         method, self._safe_route(), str(code), str(size))
+
     def log_message(self, fmt, *args):
         # Client address deliberately omitted (privacy boundary, not a bug).
-        sys.stderr.write("[measure] " + (fmt % args) + "\n")
+        # Control characters are escaped exactly как в CPython log_message.
+        message = (fmt % args).translate(self._control_char_table)
+        sys.stderr.write("[measure] " + message + "\n")
 
     # -- helpers ----------------------------------------------------------
     def _send_json(self, status, obj, allow_header=None):

@@ -97,8 +97,11 @@ export function beaconTransport(globalObj, endpoint = DEFAULT_ENDPOINT) {
       const body = JSON.stringify(event);
       const nav = globalObj && globalObj.navigator;
       if (nav && typeof nav.sendBeacon === 'function' && globalObj.Blob) {
-        nav.sendBeacon(endpoint, new globalObj.Blob([body], { type: 'text/plain;charset=UTF-8' }));
-        return;
+        // QA F-2: sendBeacon === false означает «данные НЕ поставлены в очередь»
+        // (MDN Navigator.sendBeacon#return_value) — тогда падаем в fetch keepalive.
+        if (nav.sendBeacon(endpoint, new globalObj.Blob([body], { type: 'text/plain;charset=UTF-8' })) === true) {
+          return;
+        }
       }
       if (globalObj && typeof globalObj.fetch === 'function') {
         const p = globalObj.fetch(endpoint, {
