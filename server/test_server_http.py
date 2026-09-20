@@ -212,24 +212,38 @@ class HttpServerTest(unittest.TestCase):
         self.assertNotIn('Client', logs)
 
     def test_raw_query_string_never_logged(self):
-        # QA F-1: чувствительные значения вне allowlist в query string
-        # не должны попадать в stderr-журнал; маршрут нормализуется.
+        # QA F-1 (round 2): значения вне allowlist в query string не должны
+        # попадать в stderr-журнал; маршрут нормализуется. Отрицательные
+        # проверки — только нейтральные marker_a/marker_b, КАЖДЫЙ из которых
+        # реально отправлен запросом (контракт карты).
         captured = io.StringIO()
         with redirect_stderr(captured):
-            self.get('/api/metric?days=7&ssn=123-45-6789&phone=***')
-            self.get('/api/event?token=***')
-            self.get('/api/nope?password=***')
-            self.post('/api/nope?apikey=***', valid_event(seq=301))
+            self.get('/api/metric?days=7&marker_a=value_a1')
+            self.get('/api/event?marker_a=value_a2')
+            self.get('/api/nope?marker_a=value_a3')
+            self.post('/api/nope?marker_b=value_b1', valid_event(seq=301))
         logs = captured.getvalue()
-        for secret in ('123-45-6789', '+799****4567', 'abc123secret',
-                       'hunter2', 'sekret-key-xyz'):
-            self.assertNotIn(secret, logs)
+        # каждый реально отправленный маркер (имя и значение) отсутствует
+        for sent in ('marker_a', 'value_a1', 'value_a2', 'value_a3',
+                     'marker_b', 'value_b1'):
+            self.assertNotIn(sent, logs)
         # нормализованные allowlisted-маршруты присутствуют без query
         self.assertIn('"GET /api/metric" 200', logs)
         self.assertIn('"GET /api/event" 405', logs)
         # вне allowlist — нейтральный placeholder
         self.assertIn(f'"GET {serve._REDACTED_ROUTE}" 404', logs)
         self.assertIn(f'"POST {serve._REDACTED_ROUTE}" 404', logs)
+
+    def test_access_log_record_exact_format(self):
+        # QA F-2 (round 2): запись журнала — РОВНО method + normalized
+        # route + status, без четвёртого size-поля; точная проверка полной
+        # строки, а не substring.
+        captured = io.StringIO()
+        with redirect_stderr(captured):
+            status, _, _ = self.get('/api/healthz')
+        self.assertEqual(status, 200)
+        logged = [ln for ln in captured.getvalue().splitlines() if ln]
+        self.assertEqual(logged, ['[measure] "GET /api/healthz" 200'])
 
     def test_log_control_chars_escaped_like_cpython(self):
         # QA F-1: control characters экранируются как в CPython log_message

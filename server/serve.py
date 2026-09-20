@@ -56,13 +56,13 @@ class MeasureHandler(BaseHTTPRequestHandler):
         return path if path in _LOGGED_ROUTES else _REDACTED_ROUTE
 
     def log_request(self, code="-", size="-"):
-        # QA F-1: не логируем self.requestline (в нём raw query string).
-        # Только метод + нормализованный allowlisted route + status/size.
+        # QA F-1/F-2 (round 2): запись журнала — РОВНО method + normalized
+        # route + status; четвёртое size-поле удалено (контракт карты).
+        # self.requestline не используется: в нём raw query string.
         if isinstance(code, HTTPStatus):
             code = code.value
         method = self.command or "-"
-        self.log_message('"%s %s" %s %s',
-                         method, self._safe_route(), str(code), str(size))
+        self.log_message('"%s %s" %s', method, self._safe_route(), str(code))
 
     def log_message(self, fmt, *args):
         # Client address deliberately omitted (privacy boundary, not a bug).
