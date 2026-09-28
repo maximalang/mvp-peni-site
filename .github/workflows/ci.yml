@@ -23,11 +23,25 @@ jobs:
           python-version: "3.11"
       - name: Validate Python helper syntax
         run: |
-          python -m py_compile tools/refresh_rates.py
-          python -m py_compile server/measure_core.py server/serve.py
+          python -m py_compile tools/refresh_rates.py tools/py36_startup_probe.py
+          python -m py_compile server/measure_core.py server/serve.py server/test_py36_compat.py
       - name: Run server-side measurement unit tests
         run: python -m unittest discover -s server -p "test_*.py" -v
       - name: Run calculator, SEO, and measurement tests
         run: node --test
       - name: Verify synthetic measurement readback
         run: node tools/readback_measure.mjs
+
+  py36-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prove import/startup and endpoint round-trip on Python 3.6.9 (declared production runtime)
+        run: |
+          docker run -e PYTHONDONTWRITEBYTECODE=1 -v "$PWD:/work" -w /work python:3.6.9 \
+            python -c "import sys, sqlite3; sys.path.insert(0, 'server'); import measure_core, serve; print('python', sys.version.split()[0]); print('sqlite', sqlite3.sqlite_version); print('server class:', serve.ThreadingHTTPServer.__name__, serve.ThreadingHTTPServer.__mro__[1].__name__)"
+          docker run -e PYTHONDONTWRITEBYTECODE=1 -v "$PWD:/work" -w /work python:3.6.9 \
+            python -m unittest discover -s server -p "test_py36_compat.py" -v
+          docker run -e PYTHONDONTWRITEBYTECODE=1 -v "$PWD:/work" -w /work python:3.6.9 \
+            python tools/py36_startup_probe.py --port 8199

@@ -21,7 +21,7 @@ import secrets
 import sqlite3
 import time
 from contextlib import closing
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone, tzinfo
 
 MEASURE_VERSION = 1
 SCHEMA_VERSION = 1
@@ -81,6 +81,148 @@ CREATE INDEX IF NOT EXISTS idx_did_days_day ON did_days(day);
 """
 
 
+# --- Совместимость с Python 3.6 (prod VDS: Ubuntu 18.04, /usr/bin/python3 = 3.6.9) ---
+# datetime.fromisoformat появился только в 3.7. Полифилл ТОЧНО повторяет
+# грамматику CPython 3.7:
+#   YYYY-MM-DD[*HH[:MM[:SS[.fff[fff]]]][±HH[:MM[:SS[.fff[fff]]]]]
+# где * - любой одиночный разделитель, дробная часть - ровно 3 или 6 цифр,
+# голое 'Z' не принимается (3.7 его тоже не принимает; parse_ts_ms заменяет
+# его до парсинга). Любой прочий ввод -> ValueError, как у нативной функции.
+
+def _parse_frac_36(body, value):
+    n = 0
+    while n < 6 and n < len(body) and body[n].isdigit():
+        n += 1
+    if n == 3:
+        return int(body[0:3]) * 1000, body[3:]
+    if n == 6:
+        return int(body[0:6]), body[6:]
+    raise ValueError('Invalid isoformat string: %r' % (value,))
+
+
+class _FixedOffset36(tzinfo):
+    """Фиксированное UTC-смещение для Python 3.6.
+
+    timezone() в 3.6 принимает только целое число минут; fromisoformat в
+    CPython 3.7 принимает ещё и смещения с секундами/микросекундами
+    (например '+03:00:30'). Класс используется ТОЛЬКО для sub-minute
+    смещений и повторяет граничную проверку 3.7: строго -24h < offset <
+    +24h, иначе ValueError (parse_ts_ms превращает его в 'bad_ts').
+    Sub-second смещения отклоняются: datetime в 3.6 не может их представить
+    (utcoffset() требует целое число секунд), fail-closed -> 'bad_ts' 400.
+    """
+
+    def __init__(self, offset):
+        if not -timedelta(hours=24) < offset < timedelta(hours=24):
+            raise ValueError(
+                'offset must be a timedelta strictly between '
+                '-timedelta(hours=24) and timedelta(hours=24), not %r'
+                % (offset,))
+        if offset % timedelta(seconds=1) != timedelta(0):
+            raise ValueError(
+                'sub-second UTC offset is not representable on Python 3.6: %r'
+                % (offset,))
+        self._offset = offset
+
+    def utcoffset(self, dt):
+        return self._offset
+
+    def dst(self, dt):
+        return None
+
+    def tzname(self, dt):
+        total_s = int(self._offset.total_seconds())
+        sign = '-' if total_s < 0 else '+'
+        hours, rest = divmod(abs(total_s), 3600)
+        minutes, seconds = divmod(rest, 60)
+        name = 'UTC%s%02d:%02d' % (sign, hours, minutes)
+        if seconds:
+            name += ':%02d' % seconds
+        return name
+
+    def __repr__(self):
+        return '_FixedOffset36(%r)' % (self._offset,)
+
+
+def _make_tz_36(offset):
+    # Целочисленные минутные смещения идут через нативный timezone()
+    # (поведение 3.6 и 3.7 идентично, включая границу +-24h);
+    # sub-minute - через _FixedOffset36 (timezone() в 3.6 их отклоняет).
+    if offset % timedelta(minutes=1) == timedelta(0):
+        return timezone(offset)
+    return _FixedOffset36(offset)
+
+
+def _parse_offset_36(body, value):
+    sign = -1 if body[0] == '-' else 1
+    body = body[1:]
+    if len(body) < 2 or not body[0].isdigit() or not body[1].isdigit():
+        raise ValueError('Invalid isoformat string: %r' % (value,))
+    hours = int(body[0:2])
+    body = body[2:]
+    minutes = seconds = micro = 0
+    if body[0:1] == ':':
+        if len(body) < 3 or not body[1].isdigit() or not body[2].isdigit():
+            raise ValueError('Invalid isoformat string: %r' % (value,))
+        minutes = int(body[1:3])
+        body = body[3:]
+        if body[0:1] == ':':
+            if len(body) < 3 or not body[1].isdigit() or not body[2].isdigit():
+                raise ValueError('Invalid isoformat string: %r' % (value,))
+            seconds = int(body[1:3])
+            body = body[3:]
+            if body[0:1] == '.':
+                micro, body = _parse_frac_36(body[1:], value)
+    tz = _make_tz_36(sign * timedelta(
+        hours=hours, minutes=minutes, seconds=seconds, microseconds=micro))
+    return tz, body
+
+
+def _fromisoformat_36(value):
+    if not isinstance(value, str):
+        raise TypeError('fromisoformat: argument must be str')
+    date_part = value[0:10]
+    if len(date_part) != 10 or date_part[4] != '-' or date_part[7] != '-':
+        raise ValueError('Invalid isoformat string: %r' % (value,))
+    for pos in (0, 1, 2, 3, 5, 6, 8, 9):
+        if not date_part[pos].isdigit():
+            raise ValueError('Invalid isoformat string: %r' % (value,))
+    if len(value) == 10:
+        return datetime(int(date_part[0:4]), int(date_part[5:7]),
+                        int(date_part[8:10]))
+    body = value[11:]  # value[10] - разделитель (любой одиночный символ)
+    hour = minute = second = micro = 0
+    if len(body) < 2 or not body[0].isdigit() or not body[1].isdigit():
+        raise ValueError('Invalid isoformat string: %r' % (value,))
+    hour = int(body[0:2])
+    body = body[2:]
+    if body[0:1] == ':':
+        if len(body) < 3 or not body[1].isdigit() or not body[2].isdigit():
+            raise ValueError('Invalid isoformat string: %r' % (value,))
+        minute = int(body[1:3])
+        body = body[3:]
+        if body[0:1] == ':':
+            if len(body) < 3 or not body[1].isdigit() or not body[2].isdigit():
+                raise ValueError('Invalid isoformat string: %r' % (value,))
+            second = int(body[1:3])
+            body = body[3:]
+            if body[0:1] == '.':
+                micro, body = _parse_frac_36(body[1:], value)
+    tz = None
+    if body[0:1] in ('+', '-'):
+        tz, body = _parse_offset_36(body, value)
+    if body:
+        raise ValueError('Invalid isoformat string: %r' % (value,))
+    return datetime(int(date_part[0:4]), int(date_part[5:7]),
+                    int(date_part[8:10]), hour, minute, second, micro, tz)
+
+
+try:  # Python >= 3.7
+    _fromisoformat = datetime.fromisoformat
+except AttributeError:  # Python 3.6: production VDS runtime
+    _fromisoformat = _fromisoformat_36
+
+
 def utc_now_ms():
     return int(time.time() * 1000)
 
@@ -96,7 +238,7 @@ def parse_ts_ms(ts):
     if raw.endswith(('Z', 'z')):
         raw = raw[:-1] + '+00:00'
     try:
-        dt = datetime.fromisoformat(raw)
+        dt = _fromisoformat(raw)
     except ValueError:
         raise EventRejected('bad_ts', 'unparseable ISO timestamp')
     if dt.tzinfo is None:
@@ -183,9 +325,13 @@ def _maybe_maintenance(conn, now_ms):
     cutoff = day_str_of(now_ms - RETENTION_DAYS * 86400000)
     conn.execute('DELETE FROM seen_events WHERE day < ?', (cutoff,))
     conn.execute('DELETE FROM did_days WHERE day < ?', (cutoff,))
+    # INSERT OR REPLACE == upsert для meta (key - PRIMARY KEY, FK/триггеров
+    # нет), но не требует SQLite >= 3.24: prod VDS (Ubuntu 18.04) несёт
+    # SQLite 3.22, а UPSERT-синтаксис (conflict-clause DO UPDATE) появился
+    # только в 3.24. Литерал намеренно не приводится: модуль охраняет
+    # test_no_upsert_syntax_in_module_source.
     conn.execute(
-        'INSERT INTO meta(key, value) VALUES(?, ?) '
-        'ON CONFLICT(key) DO UPDATE SET value=excluded.value',
+        'INSERT OR REPLACE INTO meta(key, value) VALUES(?, ?)',
         ('last_maintenance_day', today))
 
 
@@ -206,19 +352,26 @@ def ingest_event(db_path, payload, now_ms=None):
                 (key, day))
             deduped = (cur.rowcount == 0)
             if not deduped:
+                # Точный аналог upsert без UPSERT-синтаксиса (conflict-clause
+                # DO UPDATE требует SQLite >= 3.24; prod Ubuntu 18.04 несёт
+                # 3.22): гарантируем строку и увеличиваем счётчик.
+                # Атомарность обеспечивает окружающий BEGIN IMMEDIATE.
+                syn_flag = 1 if ev['syn'] else 0
                 conn.execute(
-                    'INSERT INTO event_counters(day, calc, attr, syn, events) '
-                    'VALUES(?, ?, ?, ?, 1) '
-                    'ON CONFLICT(day, calc, attr, syn) DO UPDATE '
-                    'SET events = events + 1',
-                    (day, ev['calc'], ev['attr'], 1 if ev['syn'] else 0))
+                    'INSERT OR IGNORE INTO event_counters'
+                    '(day, calc, attr, syn, events) VALUES(?, ?, ?, ?, 0)',
+                    (day, ev['calc'], ev['attr'], syn_flag))
+                conn.execute(
+                    'UPDATE event_counters SET events = events + 1 '
+                    'WHERE day=? AND calc=? AND attr=? AND syn=?',
+                    (day, ev['calc'], ev['attr'], syn_flag))
                 if not ev['syn'] and ev['attr'] == 'organic':
                     conn.execute(
-                        'INSERT INTO did_days(day, did_hash, organic) '
-                        'VALUES(?, ?, 1) '
-                        'ON CONFLICT(day, did_hash) DO UPDATE '
-                        'SET organic = organic + 1',
-                        (day, dh))
+                        'INSERT OR IGNORE INTO did_days(day, did_hash, organic) '
+                        'VALUES(?, ?, 0)', (day, dh))
+                    conn.execute(
+                        'UPDATE did_days SET organic = organic + 1 '
+                        'WHERE day=? AND did_hash=?', (day, dh))
             _maybe_maintenance(conn, now_ms)
             conn.execute('COMMIT')
         except Exception:
