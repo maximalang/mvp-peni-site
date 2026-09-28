@@ -22,7 +22,11 @@ jobs:
         with:
           python-version: "3.11"
       - name: Validate Python helper syntax
-        run: python -m py_compile tools/refresh_rates.py
+        run: |
+          python -m py_compile tools/refresh_rates.py
+          python -m py_compile server/measure_core.py server/serve.py
+      - name: Run server-side measurement unit tests
+        run: python -m unittest discover -s server -p "test_*.py" -v
       - name: Run calculator, SEO, and measurement tests
         run: node --test
       - name: Verify synthetic measurement readback
