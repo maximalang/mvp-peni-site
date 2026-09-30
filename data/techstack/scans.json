@@ -1,0 +1,6608 @@
+[
+ {
+  "domain": "mail.ru",
+  "url": "https://mail.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:37:01+00:00",
+  "elapsed_ms": 5434,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to mail.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "dzen.ru",
+  "url": "https://dzen.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:37:10+00:00",
+  "elapsed_ms": 7617,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to sso.passport.yandex.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "yandex.ru",
+  "url": "https://yandex.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:37:17+00:00",
+  "elapsed_ms": 5396,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to yandex.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "reg.ru",
+  "url": "https://reg.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:37:20+00:00",
+  "elapsed_ms": 850,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "mts.ru",
+  "url": "https://moskva.mts.ru/personal",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:37:26+00:00",
+  "elapsed_ms": 4291,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Express",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web frameworks",
+     "Web servers"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "vk.ru",
+  "url": "https://vk.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:37:33+00:00",
+  "elapsed_ms": 6071,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to vk.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ok.ru",
+  "url": "https://ok.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:37:41+00:00",
+  "elapsed_ms": 6048,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to ok.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "drom.ru",
+  "url": "https://www.drom.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:37:45+00:00",
+  "elapsed_ms": 3315,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "timeweb.ru",
+  "url": "https://timeweb.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:37:51+00:00",
+  "elapsed_ms": 4039,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Carrot quest",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics",
+     "Live chat"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ivi.ru",
+  "url": "https://ivi.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:37:58+00:00",
+  "elapsed_ms": 5522,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to ivi.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "gosuslugi.ru",
+  "url": "https://gosuslugi.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:38:06+00:00",
+  "elapsed_ms": 6110,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to gosuslugi.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "wildberries.ru",
+  "url": "https://wildberries.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:38:13+00:00",
+  "elapsed_ms": 6020,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to wildberries.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "bitrix24.ru",
+  "url": "https://www.bitrix24.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:38:18+00:00",
+  "elapsed_ms": 3385,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "sberbank.ru",
+  "url": "https://sberbank.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:38:21+00:00",
+  "elapsed_ms": 1471,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: self signed certificate in certificate chain (19). See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "consultant.ru",
+  "url": "https://www.consultant.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:38:26+00:00",
+  "elapsed_ms": 3283,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ya.ru",
+  "url": "https://ya.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:38:33+00:00",
+  "elapsed_ms": 5850,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to ya.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "beget.ru",
+  "url": "https://beget.com/ru",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:38:39+00:00",
+  "elapsed_ms": 3853,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nuxt.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Static site generator"
+    ]
+   },
+   {
+    "name": "hCaptcha",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "rt.ru",
+  "url": "https://rt.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:38:42+00:00",
+  "elapsed_ms": 1528,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to rt.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "pikabu.ru",
+  "url": "https://pikabu.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:38:45+00:00",
+  "elapsed_ms": 2292,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "kontur.ru",
+  "url": "https://kontur.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:38:49+00:00",
+  "elapsed_ms": 1849,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "Microsoft ASP.NET",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "megafon.ru",
+  "url": "https://moscow.megafon.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:38:58+00:00",
+  "elapsed_ms": 7681,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Angie",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   },
+   {
+    "name": "React",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "rustore.ru",
+  "url": "https://www.rustore.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:39:04+00:00",
+  "elapsed_ms": 4678,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Next.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Web servers",
+     "Static site generator"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "gismeteo.ru",
+  "url": "https://www.gismeteo.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:39:09+00:00",
+  "elapsed_ms": 3131,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Yandex.Metrika",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "scripts"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "rbc.ru",
+  "url": "https://www.rbc.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:39:13+00:00",
+  "elapsed_ms": 2757,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "rutube.ru",
+  "url": "https://rutube.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:39:18+00:00",
+  "elapsed_ms": 3148,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "tinkoff.ru",
+  "url": "https://tinkoff.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:39:21+00:00",
+  "elapsed_ms": 1441,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: self signed certificate in certificate chain (19). See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "max.ru",
+  "url": "https://max.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:39:28+00:00",
+  "elapsed_ms": 6131,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to max.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "dns-shop.ru",
+  "url": "https://dns-shop.ru/",
+  "http_status": 401,
+  "scanned_at": "2026-09-30T11:39:31+00:00",
+  "elapsed_ms": 1637,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "rambler.ru",
+  "url": "https://www.rambler.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:39:36+00:00",
+  "elapsed_ms": 2790,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Next.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Web servers",
+     "Static site generator"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "beeline.ru",
+  "url": "https://moskva.beeline.ru/customers/products/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:39:43+00:00",
+  "elapsed_ms": 5458,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Microsoft ASP.NET",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web frameworks"
+    ]
+   },
+   {
+    "name": "OpenResty",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "hh.ru",
+  "url": "https://hh.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:39:47+00:00",
+  "elapsed_ms": 2994,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "vtb.ru",
+  "url": "https://vtb.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:39:55+00:00",
+  "elapsed_ms": 6135,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to vtb.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "vkvideo.ru",
+  "url": "https://vkvideo.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:40:04+00:00",
+  "elapsed_ms": 7704,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to login.vk.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "kinopoisk.ru",
+  "url": "https://kinopoisk.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:40:11+00:00",
+  "elapsed_ms": 6080,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to kinopoisk.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ria.ru",
+  "url": "https://ria.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:40:15+00:00",
+  "elapsed_ms": 1922,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "mos.ru",
+  "url": "https://mos.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:40:22+00:00",
+  "elapsed_ms": 6063,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to mos.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "2gis.ru",
+  "url": "https://2gis.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:40:30+00:00",
+  "elapsed_ms": 6068,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to 2gis.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "alfabank.ru",
+  "url": "https://alfabank.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:40:33+00:00",
+  "elapsed_ms": 1452,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: self signed certificate in certificate chain (19). See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "lenta.ru",
+  "url": "https://lenta.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:40:38+00:00",
+  "elapsed_ms": 4001,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "aeroflot.ru",
+  "url": "https://www.aeroflot.ru/",
+  "http_status": 503,
+  "scanned_at": "2026-09-30T11:40:43+00:00",
+  "elapsed_ms": 3151,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "cbr.ru",
+  "url": "https://cbr.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:40:51+00:00",
+  "elapsed_ms": 6037,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to cbr.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "rzd.ru",
+  "url": "https://rzd.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:40:53+00:00",
+  "elapsed_ms": 1109,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: CertificateVerifyError: Failed to perform, curl: (60) SSL certificate OpenSSL verify result: self signed certificate in certificate chain (19). See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "garant.ru",
+  "url": "https://www.garant.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:40:59+00:00",
+  "elapsed_ms": 4329,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "tass.ru",
+  "url": "https://tass.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:02+00:00",
+  "elapsed_ms": 1286,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "kp.ru",
+  "url": "https://www.kp.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:07+00:00",
+  "elapsed_ms": 3757,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "banki.ru",
+  "url": "https://www.banki.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:17+00:00",
+  "elapsed_ms": 8193,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "habr.com",
+  "url": "https://habr.com/ru/feed/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:21+00:00",
+  "elapsed_ms": 3019,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "sber.ru",
+  "url": "https://sber.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:24+00:00",
+  "elapsed_ms": 1320,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "mk.ru",
+  "url": "https://www.mk.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:29+00:00",
+  "elapsed_ms": 3769,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "litres.ru",
+  "url": "https://www.litres.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:35+00:00",
+  "elapsed_ms": 3876,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "Next.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Web servers",
+     "Static site generator"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": "1.29.0",
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "google.com",
+  "url": "https://www.google.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:39+00:00",
+  "elapsed_ms": 2527,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Google Web Server",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "cloudflare.com",
+  "url": "https://www.cloudflare.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:41:45+00:00",
+  "elapsed_ms": 4193,
+  "tool_count": 6,
+  "tools": [
+   {
+    "name": "Astro",
+    "confidence": 100.0,
+    "version": "6.3.7",
+    "sources": [
+     "meta"
+    ],
+    "categories": [
+     "Static site generator",
+     "JavaScript frameworks"
+    ]
+   },
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Cloudflare Bot Management",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "facebook.com",
+  "url": "https://facebook.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:41:58+00:00",
+  "elapsed_ms": 11691,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: DNSError: Failed to perform, curl: (6) Could not resolve host: www.facebook.com. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "microsoft.com",
+  "url": "https://www.microsoft.com/fi-fi",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:42:02+00:00",
+  "elapsed_ms": 2934,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Adobe Experience Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "CMS"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Azure Front Door",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Load balancers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "youtube.com",
+  "url": "https://youtube.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:42:15+00:00",
+  "elapsed_ms": 11283,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: DNSError: Failed to perform, curl: (6) Could not resolve host: youtube.com. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "apple.com",
+  "url": "https://www.apple.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:42:20+00:00",
+  "elapsed_ms": 3178,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Apple MapKit JS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Maps"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "instagram.com",
+  "url": "https://instagram.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:42:34+00:00",
+  "elapsed_ms": 12650,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: DNSError: Failed to perform, curl: (6) Could not resolve host: www.instagram.com. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "twitter.com",
+  "url": "https://x.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:42:41+00:00",
+  "elapsed_ms": 5206,
+  "tool_count": 5,
+  "tools": [
+   {
+    "name": "Arkose Labs",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Cloudflare Bot Management",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Plaid",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Payment processors",
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "linkedin.com",
+  "url": "https://linkedin.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:42:55+00:00",
+  "elapsed_ms": 12824,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: DNSError: Failed to perform, curl: (6) Could not resolve host: www.linkedin.com. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "office.com",
+  "url": "https://m365.cloud.microsoft/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:02+00:00",
+  "elapsed_ms": 5376,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Azure Monitor",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics",
+     "Performance"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Microsoft HTTPAPI",
+    "confidence": 100.0,
+    "version": "2.0",
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "live.com",
+  "url": "https://outlook.live.com/mail/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:07+00:00",
+  "elapsed_ms": 3301,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Microsoft HTTPAPI",
+    "confidence": 100.0,
+    "version": "2.0",
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "amazon.com",
+  "url": "https://www.amazon.com/",
+  "http_status": 202,
+  "scanned_at": "2026-09-30T11:43:11+00:00",
+  "elapsed_ms": 3059,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Amazon CloudFront",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "github.com",
+  "url": "https://github.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:15+00:00",
+  "elapsed_ms": 2322,
+  "tool_count": 5,
+  "tools": [
+   {
+    "name": "Amazon S3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Contentful",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "CMS"
+    ]
+   },
+   {
+    "name": "GitHub Pages",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "PaaS"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "React",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "wikipedia.org",
+  "url": "https://www.wikipedia.org/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:19+00:00",
+  "elapsed_ms": 3033,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Apache Traffic Server",
+    "confidence": 100.0,
+    "version": "9.2.15",
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "bing.com",
+  "url": "https://www.bing.com:443/?toWww=1&redig=C29D1B776F2E490B8EB61FF7866BC6A6",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:24+00:00",
+  "elapsed_ms": 3378,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "netflix.com",
+  "url": "https://www.netflix.com/fi-en/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:30+00:00",
+  "elapsed_ms": 4169,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Zipkin",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "wordpress.org",
+  "url": "https://wordpress.org/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:34+00:00",
+  "elapsed_ms": 2255,
+  "tool_count": 6,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "WordPress",
+    "confidence": 100.0,
+    "version": "7.2",
+    "sources": [
+     "headers",
+     "meta",
+     "scripts",
+     "html"
+    ],
+    "categories": [
+     "CMS",
+     "Blogs"
+    ]
+   },
+   {
+    "name": "WordPress Block Editor",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Page builders"
+    ]
+   },
+   {
+    "name": "WordPress Site Editor",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Page builders"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "x.com",
+  "url": "https://x.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:37+00:00",
+  "elapsed_ms": 1628,
+  "tool_count": 5,
+  "tools": [
+   {
+    "name": "Arkose Labs",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Cloudflare Bot Management",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Plaid",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Payment processors",
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "skype.com",
+  "url": "https://teams.live.com/free?source=skype",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:43+00:00",
+  "elapsed_ms": 4892,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "icloud.com",
+  "url": "https://www.icloud.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:43:53+00:00",
+  "elapsed_ms": 7963,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Apple MapKit JS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Maps"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "pinterest.com",
+  "url": "https://www.pinterest.com/",
+  "http_status": 429,
+  "scanned_at": "2026-09-30T11:43:57+00:00",
+  "elapsed_ms": 2744,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "tiktok.com",
+  "url": "https://www.tiktok.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:02+00:00",
+  "elapsed_ms": 3484,
+  "tool_count": 7,
+  "tools": [
+   {
+    "name": "Amazon S3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Arkose Labs",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "PayPal",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Payment processors"
+    ]
+   },
+   {
+    "name": "hCaptcha",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "whatsapp.com",
+  "url": "https://whatsapp.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:44:15+00:00",
+  "elapsed_ms": 11088,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: DNSError: Failed to perform, curl: (6) Could not resolve host: whatsapp.com. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "yahoo.com",
+  "url": "https://www.yahoo.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:20+00:00",
+  "elapsed_ms": 4396,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Apache Traffic Server",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "spotify.com",
+  "url": "https://open.spotify.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:26+00:00",
+  "elapsed_ms": 4395,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "adobe.com",
+  "url": "https://www.adobe.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:31+00:00",
+  "elapsed_ms": 3103,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "zoom.us",
+  "url": "https://www.zoom.com/ru",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:36+00:00",
+  "elapsed_ms": 3471,
+  "tool_count": 5,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Cloudflare Bot Management",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "baidu.com",
+  "url": "https://www.baidu.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:42+00:00",
+  "elapsed_ms": 4148,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "chatgpt.com",
+  "url": "https://chatgpt.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:45+00:00",
+  "elapsed_ms": 2123,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Cloudflare Bot Management",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "openai.com",
+  "url": "https://openai.com/ru-RU/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:49+00:00",
+  "elapsed_ms": 2752,
+  "tool_count": 7,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Contentful",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "CMS"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Next.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Web servers",
+     "Static site generator"
+    ]
+   },
+   {
+    "name": "Vercel",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "PaaS"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "opera.com",
+  "url": "https://www.opera.com/ru",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:44:54+00:00",
+  "elapsed_ms": 3484,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "samsung.com",
+  "url": "https://www.samsung.com/fi/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:01+00:00",
+  "elapsed_ms": 4761,
+  "tool_count": 5,
+  "tools": [
+   {
+    "name": "Adobe Experience Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "CMS"
+    ]
+   },
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai mPulse",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "RUM"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "mozilla.org",
+  "url": "https://www.mozilla.org/ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:07+00:00",
+  "elapsed_ms": 4624,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   },
+   {
+    "name": "X-Clacks-Overhead",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "wordpress.com",
+  "url": "https://wordpress.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:45:10+00:00",
+  "elapsed_ms": 1391,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "reddit.com",
+  "url": "https://www.reddit.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:45:13+00:00",
+  "elapsed_ms": 2109,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "dropbox.com",
+  "url": "https://www.dropbox.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:19+00:00",
+  "elapsed_ms": 4053,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "PayPal",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Payment processors"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "godaddy.com",
+  "url": "https://www.godaddy.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:45:23+00:00",
+  "elapsed_ms": 2998,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "nytimes.com",
+  "url": "https://www.nytimes.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:45:27+00:00",
+  "elapsed_ms": 1994,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "DataDome",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers",
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Fastly",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "discord.com",
+  "url": "https://discord.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:30+00:00",
+  "elapsed_ms": 1780,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "hCaptcha",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "paypal.com",
+  "url": "https://www.paypal.com/fi/home",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:36+00:00",
+  "elapsed_ms": 3945,
+  "tool_count": 6,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Linkedin Ads",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Advertising"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "PayPal",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Payment processors"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "shopify.com",
+  "url": "https://www.shopify.com/fi",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:41+00:00",
+  "elapsed_ms": 4367,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Shopify",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Ecommerce"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "medium.com",
+  "url": "https://medium.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:45:44+00:00",
+  "elapsed_ms": 1533,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "cnn.com",
+  "url": "https://edition.cnn.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:53+00:00",
+  "elapsed_ms": 6777,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "theguardian.com",
+  "url": "https://www.theguardian.com/europe",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:45:59+00:00",
+  "elapsed_ms": 4236,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ebay.com",
+  "url": "https://www.ebay.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:46:04+00:00",
+  "elapsed_ms": 4411,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "forbes.com",
+  "url": "https://www.forbes.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:46:09+00:00",
+  "elapsed_ms": 3542,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "bbc.com",
+  "url": "https://bbc.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:46:23+00:00",
+  "elapsed_ms": 12436,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: DNSError: Failed to perform, curl: (6) Could not resolve host: www.bbc.com. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ubuntu.com",
+  "url": "https://ubuntu.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:46:26+00:00",
+  "elapsed_ms": 1306,
+  "tool_count": 7,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Linkedin Ads",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Advertising"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": "1.14.0",
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Ubuntu",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Operating systems"
+    ]
+   },
+   {
+    "name": "X-Clacks-Overhead",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "twitch.tv",
+  "url": "https://www.twitch.tv/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:46:31+00:00",
+  "elapsed_ms": 2969,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "bbc.co.uk",
+  "url": "https://www.bbc.co.uk/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:46:36+00:00",
+  "elapsed_ms": 3421,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.11,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "vedomosti.ru",
+  "url": "https://www.vedomosti.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:51:25+00:00",
+  "elapsed_ms": 4830,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Express",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web frameworks",
+     "Web servers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "kommersant.ru",
+  "url": "https://www.kommersant.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:51:30+00:00",
+  "elapsed_ms": 3221,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "iz.ru",
+  "url": "https://iz.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:51:33+00:00",
+  "elapsed_ms": 1512,
+  "tool_count": 5,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Drupal",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CMS"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "YouTube",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Video players"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "vc.ru",
+  "url": "https://vc.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:51:37+00:00",
+  "elapsed_ms": 2563,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "React",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   },
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "nspk.ru",
+  "url": "https://nspk.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:51:44+00:00",
+  "elapsed_ms": 5282,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to nspk.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "championat.com",
+  "url": "https://www.championat.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:51:48+00:00",
+  "elapsed_ms": 3222,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "sportbox.ru",
+  "url": "https://news.sportbox.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:51:55+00:00",
+  "elapsed_ms": 4694,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "gazeta.ru",
+  "url": "https://www.gazeta.ru/auth/sso.shtml?origin=/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:51:59+00:00",
+  "elapsed_ms": 3345,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "lamoda.ru",
+  "url": "https://www.lamoda.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:04+00:00",
+  "elapsed_ms": 3181,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ntv.ru",
+  "url": "https://www.ntv.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:09+00:00",
+  "elapsed_ms": 3707,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Express",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web frameworks",
+     "Web servers"
+    ]
+   },
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "1tv.ru",
+  "url": "https://www.1tv.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:14+00:00",
+  "elapsed_ms": 3443,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "mvideo.ru",
+  "url": "https://www.mvideo.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:19+00:00",
+  "elapsed_ms": 3333,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "forbes.ru",
+  "url": "https://www.forbes.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:25+00:00",
+  "elapsed_ms": 4046,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nuxt.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Static site generator"
+    ]
+   },
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "sport-express.ru",
+  "url": "https://www.sport-express.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:31+00:00",
+  "elapsed_ms": 5049,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "fontanka.ru",
+  "url": "https://www.fontanka.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:36+00:00",
+  "elapsed_ms": 3580,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Liveinternet",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "woman.ru",
+  "url": "https://www.woman.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:42+00:00",
+  "elapsed_ms": 4126,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": "6.0",
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   },
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ren.tv",
+  "url": "https://ren.tv/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:45+00:00",
+  "elapsed_ms": 2003,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "DDoS-Guard",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nuxt.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Static site generator"
+    ]
+   },
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "citilink.ru",
+  "url": "https://www.citilink.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:51+00:00",
+  "elapsed_ms": 4094,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Next.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Web servers",
+     "Static site generator"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "sravni.ru",
+  "url": "https://www.sravni.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:52:57+00:00",
+  "elapsed_ms": 4120,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "megamarket.ru",
+  "url": "https://megamarket.ru",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:53:04+00:00",
+  "elapsed_ms": 6075,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to megamarket.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "sbermegamarket.ru",
+  "url": "https://sbermegamarket.ru/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:53:07+00:00",
+  "elapsed_ms": 1576,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ivi.tv",
+  "url": "https://ivi.tv",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:53:18+00:00",
+  "elapsed_ms": 9291,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; error queue empty) in connection to www.ivi.ru:443. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "stripe.com",
+  "url": "https://stripe.com/en-fi",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:53:24+00:00",
+  "elapsed_ms": 3978,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "Amazon S3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "canva.com",
+  "url": "https://canva.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:53:38+00:00",
+  "elapsed_ms": 12704,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: DNSError: Failed to perform, curl: (6) Could not resolve host: www.canva.com. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "imdb.com",
+  "url": "https://www.imdb.com/",
+  "http_status": 202,
+  "scanned_at": "2026-09-30T11:53:43+00:00",
+  "elapsed_ms": 3194,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Amazon CloudFront",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Amazon Web Services",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "PaaS"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "booking.com",
+  "url": "https://booking.com",
+  "http_status": null,
+  "scanned_at": "2026-09-30T11:54:04+00:00",
+  "elapsed_ms": 20014,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": "curl_cffi: Timeout: Failed to perform, curl: (28) Operation timed out after 20013 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "hp.com",
+  "url": "https://www.hp.com/fi-fi/home.html",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:13+00:00",
+  "elapsed_ms": 7039,
+  "tool_count": 6,
+  "tools": [
+   {
+    "name": "Adobe Experience Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "CMS"
+    ]
+   },
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Apache HTTP Server",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   },
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "dell.com",
+  "url": "https://www.dell.com/fi-fi/lp",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:18+00:00",
+  "elapsed_ms": 4265,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "bilibili.com",
+  "url": "https://www.bilibili.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:25+00:00",
+  "elapsed_ms": 5144,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "naver.com",
+  "url": "https://www.naver.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:29+00:00",
+  "elapsed_ms": 2822,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "slack.com",
+  "url": "https://slack.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:33+00:00",
+  "elapsed_ms": 1912,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Apache HTTP Server",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   },
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "washingtonpost.com",
+  "url": "https://www.washingtonpost.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:40+00:00",
+  "elapsed_ms": 5899,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Akamai mPulse",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "RUM"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "nvidia.com",
+  "url": "https://www.nvidia.com/fi-fi/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:45+00:00",
+  "elapsed_ms": 3626,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Adobe Experience Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "CMS"
+    ]
+   },
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Apache HTTP Server",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "brave.com",
+  "url": "https://brave.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:48+00:00",
+  "elapsed_ms": 1543,
+  "tool_count": 7,
+  "tools": [
+   {
+    "name": "Amazon CloudFront",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Amazon S3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Amazon Web Services",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "PaaS"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Hugo",
+    "confidence": 100.0,
+    "version": "0.119.0",
+    "sources": [
+     "meta"
+    ],
+    "categories": [
+     "Static site generator"
+    ]
+   },
+   {
+    "name": "Matomo Analytics",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "scripts"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "aliexpress.com",
+  "url": "https://www.aliexpress.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:54+00:00",
+  "elapsed_ms": 4640,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Naver Analytics",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "meta"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Spring",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web frameworks"
+    ]
+   },
+   {
+    "name": "Tengine",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "intel.com",
+  "url": "https://www.intel.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:54:59+00:00",
+  "elapsed_ms": 3359,
+  "tool_count": 6,
+  "tools": [
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Amazon S3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Amazon Web Services",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "PaaS"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "duckduckgo.com",
+  "url": "https://duckduckgo.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:03+00:00",
+  "elapsed_ms": 1945,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "walmart.com",
+  "url": "https://www.walmart.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:08+00:00",
+  "elapsed_ms": 3756,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "docker.com",
+  "url": "https://www.docker.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:13+00:00",
+  "elapsed_ms": 3345,
+  "tool_count": 10,
+  "tools": [
+   {
+    "name": "Google Tag Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Tag managers"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Pantheon",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "PaaS"
+    ]
+   },
+   {
+    "name": "SyntaxHighlighter",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   },
+   {
+    "name": "WordPress",
+    "confidence": 100.0,
+    "version": "7.1.2",
+    "sources": [
+     "headers",
+     "meta"
+    ],
+    "categories": [
+     "CMS",
+     "Blogs"
+    ]
+   },
+   {
+    "name": "WordPress Block Editor",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Page builders"
+    ]
+   },
+   {
+    "name": "WordPress Site Editor",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "Page builders"
+    ]
+   },
+   {
+    "name": "reCAPTCHA",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "scripts"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "stackoverflow.com",
+  "url": "https://stackoverflow.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:55:16+00:00",
+  "elapsed_ms": 1501,
+  "tool_count": 2,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Cloudflare Bot Management",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "digitalocean.com",
+  "url": "https://www.digitalocean.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:21+00:00",
+  "elapsed_ms": 3239,
+  "tool_count": 6,
+  "tools": [
+   {
+    "name": "Algolia",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Search engines"
+    ]
+   },
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Linkedin Ads",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Advertising"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   },
+   {
+    "name": "Next.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Web servers",
+     "Static site generator"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "target.com",
+  "url": "https://www.target.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:26+00:00",
+  "elapsed_ms": 4372,
+  "tool_count": 1,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "atlassian.com",
+  "url": "https://www.atlassian.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:34+00:00",
+  "elapsed_ms": 5570,
+  "tool_count": 6,
+  "tools": [
+   {
+    "name": "Algolia",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Search engines"
+    ]
+   },
+   {
+    "name": "Amazon CloudFront",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Amazon S3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Linkedin Insight Tag",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Analytics"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "ikea.com",
+  "url": "https://www.ikea.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:55:38+00:00",
+  "elapsed_ms": 2899,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Cloudflare",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Cloudflare Bot Management",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "airbnb.com",
+  "url": "https://www.airbnb.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:43+00:00",
+  "elapsed_ms": 3485,
+  "tool_count": 5,
+  "tools": [
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "HTTP/3",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "asus.com",
+  "url": "https://www.asus.com/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:48+00:00",
+  "elapsed_ms": 4001,
+  "tool_count": 4,
+  "tools": [
+   {
+    "name": "Amazon CloudFront",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Nuxt.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks",
+     "Web frameworks",
+     "Static site generator"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "python.org",
+  "url": "https://www.python.org/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:55:53+00:00",
+  "elapsed_ms": 2851,
+  "tool_count": 3,
+  "tools": [
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Nginx",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers",
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "Varnish",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Caching"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "homedepot.com",
+  "url": "https://www.homedepot.com/",
+  "http_status": 403,
+  "scanned_at": "2026-09-30T11:55:57+00:00",
+  "elapsed_ms": 2981,
+  "tool_count": 0,
+  "tools": [],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ },
+ {
+  "domain": "lenovo.com",
+  "url": "https://www.lenovo.com/fi/fi/",
+  "http_status": 200,
+  "scanned_at": "2026-09-30T11:56:02+00:00",
+  "elapsed_ms": 3652,
+  "tool_count": 7,
+  "tools": [
+   {
+    "name": "Akamai",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "CDN"
+    ]
+   },
+   {
+    "name": "Akamai Bot Manager",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "cookies"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "Akamai mPulse",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "RUM"
+    ]
+   },
+   {
+    "name": "Envoy",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Reverse proxies"
+    ]
+   },
+   {
+    "name": "HSTS",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Security"
+    ]
+   },
+   {
+    "name": "OpenResty",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "headers"
+    ],
+    "categories": [
+     "Web servers"
+    ]
+   },
+   {
+    "name": "Vue.js",
+    "confidence": 100.0,
+    "version": null,
+    "sources": [
+     "html"
+    ],
+    "categories": [
+     "JavaScript frameworks"
+    ]
+   }
+  ],
+  "fetch_error": null,
+  "engine": "enthec/webappanalyzer@local",
+  "unsupported_classes": [
+   "js",
+   "dom",
+   "dns"
+  ],
+  "db_load_s": 0.12,
+  "skipped_bad_patterns": 0
+ }
+]
