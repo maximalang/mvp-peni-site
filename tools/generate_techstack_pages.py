@@ -17,6 +17,16 @@
 В HTML рендерятся исключительно поля белого списка (name, categories, confidence,
 version + домен/final-url/статус/дата/число инструментов) — PII не проходит.
 
+Fail-closed рендеринг недоверенных данных скана (hardening PR9, 2026-10-01):
+  * JSON-LD сериализуется для контекста HTML <script>: символы < > & и
+    разделители строк U+2028/U+2029 заменяются на \\uXXXX-эквиваленты, поэтому
+    значение поля не может закрыть <script> и открыть новый; текст остаётся
+    валидным JSON с идентичным семантическим содержимым (jsonld()).
+  * URL из записи скана проходит валидацию схемы: в href допускаются только
+    http/https с непустым host и без управляющих символов/пробелов; любой иной
+    или malformed URL детерминированно рендерится как экранированный текст без
+    ссылки (safe_href() + render_domain_page()).
+
 Python 3.11+, только stdlib. Детерминированный вывод (сортировка по домену).
 """
 from __future__ import annotations
@@ -27,6 +37,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 BASE_URL_DEFAULT = "https://peni.recruiter-radar.ru"
 
@@ -155,10 +166,62 @@ def meta_head(*, title: str, description: str, canonical: str, stylesheet: str) 
     )
 
 
+# Символы, недопустимые в URL, который мы выпускаем в href (управляющие,
+# пробельные и DEL): их наличие — признак обфускации схемы (java\tscript: и т.п.).
+_UNSAFE_URL_CHARS = re.compile(r"[\x00-\x20\x7f]")
+
+# Fail-closed белый список схем для исходящих ссылок.
+SAFE_URL_SCHEMES = ("http", "https")
+
+# Экранирование JSON-текста для безопасной вставки внутрь HTML <script>:
+# ни один из этих символов не может появиться в JSON вне строковых значений,
+# поэтому замена сохраняет валидность JSON и его семантику — JSON-парсер
+# возвращает исходный символ из escape-последовательности.
+def _unicode_escape(ch: str) -> str:
+    return chr(92) + "u%04x" % ord(ch)
+
+
+_JSONLD_HTML_ESCAPES = tuple(
+    (ch, _unicode_escape(ch)) for ch in ("&", "<", ">", "\u2028", "\u2029")
+)
+
+
+def safe_href(url: object) -> str | None:
+    """URL, безопасный для href, либо None (fail-closed).
+
+    Допускаются только схемы http/https с непустым host. Отклоняются:
+    javascript:/data:/vbscript: и любые иные схемы, scheme-relative //host,
+    пустые и относительные значения, управляющие символы и пробелы внутри
+    (обфускация схемы вида java\\tscript:), URL без host.
+    """
+    candidate = str(url).strip()
+    if not candidate or _UNSAFE_URL_CHARS.search(candidate):
+        return None
+    try:
+        parts = urlsplit(candidate)
+    except ValueError:
+        return None
+    if parts.scheme.lower() not in SAFE_URL_SCHEMES:
+        return None
+    if not parts.hostname:
+        return None
+    return candidate
+
+
 def jsonld(obj: object) -> str:
+    """JSON-LD блок, безопасный для контекста HTML <script>.
+
+    Сериализованный JSON экранируется (&, <, >, U+2028, U+2029 -> \\uXXXX),
+    поэтому attacker-controlled значение (например, имя инструмента, содержащее
+    </script>) не может завершить блок и породить исполняемые script-элементы.
+    Результат остаётся валидным JSON с идентичным содержимым.
+    """
+    payload = json.dumps(obj, ensure_ascii=False, indent=2, sort_keys=True)
+    for char, escaped in _JSONLD_HTML_ESCAPES:
+        payload = payload.replace(char, escaped)
     return (
         '<script type="application/ld+json">\n'
-        + json.dumps(obj, ensure_ascii=False, indent=2, sort_keys=True)
+        + payload
         + "\n</script>\n"
     )
 
@@ -205,6 +268,14 @@ def render_domain_page(rec: dict, base_url: str) -> str:
             "</tr>"
         )
     final_url = str(rec.get("url") or f"https://{domain}")
+    safe_url = safe_href(final_url)
+    if safe_url is not None:
+        final_url_html = (
+            f'<a rel="nofollow noopener" href="{esc(safe_url)}">{esc(safe_url)}</a>'
+        )
+    else:
+        # Fail-closed: опасная/malformed схема URL — экранированный текст без ссылки.
+        final_url_html = f"<span>{esc(final_url)}</span>"
     status = rec.get("http_status")
     status_txt = esc(status) if status is not None else "—"
     ld = {
@@ -245,7 +316,7 @@ def render_domain_page(rec: dict, base_url: str) -> str:
         + "    <thead><tr><th>Инструмент</th><th>Категории</th><th>Уверенность</th><th>Версия</th></tr></thead>\n"
         + "    <tbody>\n" + "\n".join(rows) + "\n    </tbody>\n  </table>\n"
         + f'  <p class="disclaimer">{esc(DISCLAIMER.format(domain=domain))} '
-        + f'Проверенный адрес: <a rel="nofollow noopener" href="{esc(final_url)}">{esc(final_url)}</a>.</p>\n'
+        + f'Проверенный адрес: {final_url_html}.</p>\n'
         + '  <nav class="crosslinks" aria-label="Смежные материалы">\n'
         + '    <a href="../">Каталог техстеков</a>\n'
         + '    <a href="../../">Калькулятор пеней по налогам</a>\n'
