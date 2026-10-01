@@ -1,0 +1,218 @@
+[
+ {
+  "domain": "ozon.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per ACCESS.md; pre-excluded before scanning"
+ },
+ {
+  "domain": "avito.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per ACCESS.md; pre-excluded before scanning"
+ },
+ {
+  "domain": "tbank.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per ACCESS.md; pre-excluded before scanning"
+ },
+ {
+  "domain": "mail.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "dzen.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "yandex.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "reg.ru",
+  "reason": "HTTP 200 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "vk.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "ok.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "ivi.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "gosuslugi.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "wildberries.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "sberbank.ru",
+  "reason": "SSL certificate verify failed from our IP (national CA chain not in curl trust store) — fortress class"
+ },
+ {
+  "domain": "ya.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "rt.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "rbc.ru",
+  "reason": "HTTP 200 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "tinkoff.ru",
+  "reason": "SSL certificate verify failed from our IP (national CA chain not in curl trust store) — fortress class"
+ },
+ {
+  "domain": "max.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "dns-shop.ru",
+  "reason": "HTTP 401 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "vtb.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "vkvideo.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "kinopoisk.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "mos.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "2gis.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "alfabank.ru",
+  "reason": "SSL certificate verify failed from our IP (national CA chain not in curl trust store) — fortress class"
+ },
+ {
+  "domain": "cbr.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "rzd.ru",
+  "reason": "SSL certificate verify failed from our IP (national CA chain not in curl trust store) — fortress class"
+ },
+ {
+  "domain": "kp.ru",
+  "reason": "HTTP 200 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "facebook.com",
+  "reason": "DNS resolution blocked from our IP (regional blocking) — environment boundary"
+ },
+ {
+  "domain": "youtube.com",
+  "reason": "DNS resolution blocked from our IP (regional blocking) — environment boundary"
+ },
+ {
+  "domain": "instagram.com",
+  "reason": "DNS resolution blocked from our IP (regional blocking) — environment boundary"
+ },
+ {
+  "domain": "linkedin.com",
+  "reason": "DNS resolution blocked from our IP (regional blocking) — environment boundary"
+ },
+ {
+  "domain": "whatsapp.com",
+  "reason": "DNS resolution blocked from our IP (regional blocking) — environment boundary"
+ },
+ {
+  "domain": "baidu.com",
+  "reason": "HTTP 200 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "godaddy.com",
+  "reason": "HTTP 403 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "bbc.com",
+  "reason": "DNS resolution blocked from our IP (regional blocking) — environment boundary"
+ },
+ {
+  "domain": "nspk.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "mvideo.ru",
+  "reason": "HTTP 200 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "megamarket.ru",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "ivi.tv",
+  "reason": "TLS handshake reset from our IP — fortress class per webstack-scanner ACCESS.md"
+ },
+ {
+  "domain": "canva.com",
+  "reason": "DNS resolution blocked from our IP (regional blocking) — environment boundary"
+ },
+ {
+  "domain": "booking.com",
+  "reason": "fetch error: curl_cffi: Timeout: Failed to perform, curl: (28) Operation timed out after 20013 milliseconds with 0 bytes received. Se"
+ },
+ {
+  "domain": "homedepot.com",
+  "reason": "HTTP 403 but zero server-side markers detected (JS-only response) — no page generated (anti-fabrication rule)"
+ },
+ {
+  "domain": "amd.com",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "trello.com",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "npmjs.com",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "notion.so",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "nodejs.org",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "pypi.org",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "vercel.com",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "netlify.com",
+  "reason": "not scanned: 150-domain live-scan budget for this task exhausted (spec limit)"
+ },
+ {
+  "domain": "nalog.gov.ru",
+  "reason": "not present in Tranco top-1m snapshot used; not scanned"
+ },
+ {
+  "domain": "echo.msk.ru",
+  "reason": "not present in Tranco top-1m snapshot used; not scanned"
+ },
+ {
+  "domain": "okino.ru",
+  "reason": "not present in Tranco top-1m snapshot used; not scanned"
+ }
+]

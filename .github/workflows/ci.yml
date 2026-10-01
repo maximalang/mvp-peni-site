@@ -24,6 +24,7 @@ jobs:
       - name: Validate Python helper syntax
         run: |
           python -m py_compile tools/refresh_rates.py
+          python -m py_compile tools/generate_techstack_pages.py
           python -m py_compile server/measure_core.py server/serve.py
       - name: Run server-side measurement unit tests
         run: python -m unittest discover -s server -p "test_*.py" -v

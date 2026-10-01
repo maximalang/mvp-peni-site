@@ -1,0 +1,132 @@
+{
+  "domains": "# Fixture domain set for generator test (synthetic, not live data)\nexample-one.test\nexample-two.test\nexample-zero.test\nexample-broken.test\n",
+  "scans": [
+    {
+      "domain": "example-one.test",
+      "url": "https://example-one.test/",
+      "http_status": 200,
+      "scanned_at": "2026-09-30T10:00:00+00:00",
+      "elapsed_ms": 120,
+      "tool_count": 2,
+      "tools": [
+        {
+          "name": "Nginx",
+          "confidence": 100.0,
+          "version": "1.25.3",
+          "sources": ["headers"],
+          "categories": ["Web servers"]
+        },
+        {
+          "name": "React",
+          "confidence": 75.5,
+          "version": null,
+          "sources": ["html", "scripts"],
+          "categories": ["JavaScript frameworks"]
+        }
+      ],
+      "fetch_error": null,
+      "engine": "enthec/webappanalyzer@local",
+      "unsupported_classes": ["js", "dom", "dns"],
+      "raw_headers_snippet": "Set-Cookie: session=ivan.petrov@example-mail.test; Path=/",
+      "operator_email": "ivan.petrov@example-mail.test"
+    },
+    {
+      "domain": "example-two.test",
+      "url": "https://www.example-two.test/home",
+      "http_status": 403,
+      "scanned_at": "2026-09-30T10:00:05+00:00",
+      "elapsed_ms": 90,
+      "tool_count": 1,
+      "tools": [
+        {
+          "name": "Cloudflare",
+          "confidence": 100.0,
+          "version": null,
+          "sources": ["headers"],
+          "categories": ["CDN", "Security"]
+        }
+      ],
+      "fetch_error": null,
+      "engine": "enthec/webappanalyzer@local",
+      "unsupported_classes": ["js", "dom", "dns"]
+    },
+    {
+      "domain": "example-two.test",
+      "url": "https://www.example-two.test/home",
+      "http_status": 200,
+      "scanned_at": "2026-09-30T10:00:09+00:00",
+      "elapsed_ms": 95,
+      "tool_count": 2,
+      "tools": [
+        {
+          "name": "Cloudflare",
+          "confidence": 100.0,
+          "version": null,
+          "sources": ["headers"],
+          "categories": ["CDN"]
+        },
+        {
+          "name": "WordPress",
+          "confidence": 90.0,
+          "version": "6.6",
+          "sources": ["html"],
+          "categories": ["CMS"]
+        }
+      ],
+      "fetch_error": null,
+      "engine": "enthec/webappanalyzer@local",
+      "unsupported_classes": ["js", "dom", "dns"]
+    },
+    {
+      "domain": "example-zero.test",
+      "url": "https://example-zero.test/",
+      "http_status": 200,
+      "scanned_at": "2026-09-30T10:00:12+00:00",
+      "elapsed_ms": 80,
+      "tool_count": 0,
+      "tools": [],
+      "fetch_error": null,
+      "engine": "enthec/webappanalyzer@local",
+      "unsupported_classes": ["js", "dom", "dns"]
+    },
+    {
+      "domain": "example-broken.test",
+      "url": null,
+      "http_status": null,
+      "scanned_at": "2026-09-30T10:00:15+00:00",
+      "elapsed_ms": 5000,
+      "tool_count": 0,
+      "tools": [],
+      "fetch_error": "curl_cffi: SSLError: Failed to perform, curl: (35) SSL_connect reset",
+      "engine": "enthec/webappanalyzer@local",
+      "unsupported_classes": ["js", "dom", "dns"]
+    },
+    {
+      "domain": "not-in-domains.test",
+      "url": "https://not-in-domains.test/",
+      "http_status": 200,
+      "scanned_at": "2026-09-30T10:00:18+00:00",
+      "elapsed_ms": 70,
+      "tool_count": 1,
+      "tools": [
+        {
+          "name": "Apache",
+          "confidence": 100.0,
+          "version": null,
+          "sources": ["headers"],
+          "categories": ["Web servers"]
+        }
+      ],
+      "fetch_error": null,
+      "engine": "enthec/webappanalyzer@local",
+      "unsupported_classes": ["js", "dom", "dns"]
+    }
+  ],
+  "skips": [
+    {
+      "domain": "example-fortress.test",
+      "reason": "TLS handshake reset from our IP (fortress class per ACCESS.md)"
+    }
+  ],
+  "sitemap": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>https://peni.recruiter-radar.ru/</loc>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n"
+}
