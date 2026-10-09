@@ -1,0 +1,908 @@
+{
+  "corpus_version": "calc-edge-2026-10-09-v1",
+  "scope": "synthetic edge cases for the Art. 75(4)(1) NK RF peni calculator (js/calc.js)",
+  "generated_by": {
+    "method": "model proposes candidate INPUTS only; all expected values are computed by the deterministic oracle script",
+    "rail": "qwen3.8-max via DashScope compatible-mode (provider=custom, hermes -z one-shot, ordinary paid rail, no free pool)",
+    "kanban_task": "t_d081e2c7",
+    "sessions": [
+      "20261009_163354_b07681",
+      "20261009_163914_91a91d"
+    ],
+    "usage": [
+      {
+        "model": "qwen3.8-max",
+        "provider": "custom",
+        "input_tokens": 13255,
+        "output_tokens": 12462,
+        "total_tokens": 64757
+      },
+      {
+        "model": "qwen3.8-max",
+        "provider": "custom",
+        "input_tokens": 2845,
+        "output_tokens": 7780,
+        "total_tokens": 29057
+      }
+    ]
+  },
+  "oracle": {
+    "script": "tools/build_calc_edge_fixtures.py",
+    "script_sha256": "ec006320d83e4d9044e959adca782b4515ff5606e2e649e5abd5a00caaa70b19",
+    "arithmetic": "exact Fraction arithmetic, independent reimplementation; HALF_UP kopeck rounding; validation contract mirrored from js/calc.js"
+  },
+  "rates_snapshot": {
+    "path": "data/key-rates.json",
+    "rows": 3261,
+    "first_date": "2013-09-17",
+    "last_date": "2026-09-18",
+    "sha256": "772899ffcd61026167a2c587b07926e81873725aa58e82739e266641584c464d"
+  },
+  "stats": {
+    "received": 60,
+    "schema_skipped": 1,
+    "duplicate_skipped": 0,
+    "written": 59
+  },
+  "fixtures": [
+    {
+      "id": "amount_min_boundary-01",
+      "kind": "positive",
+      "category": "amount_min_boundary",
+      "arrears_rub": "0.01",
+      "first_delay_date": "2024-11-01",
+      "last_delay_date": "2024-11-01",
+      "expected_display_total_rub": "0.00",
+      "expected_exact_total_rub": "0.00",
+      "expected_days_inclusive": 1,
+      "expected_rate_days": {
+        "21.00": 1
+      },
+      "oracle_note": "минимальная недоимка 1 копейка, 1 день при ставке 21.00 — дневная пеня 0.0007 коп округляется до 0.00",
+      "input_digest": "7eaa912b3f2165a539b1ee8b90a69f5257b656f808f6468ac668de3532b67e6e"
+    },
+    {
+      "id": "amount_min_boundary-02",
+      "kind": "positive",
+      "category": "amount_min_boundary",
+      "arrears_rub": "0.01",
+      "first_delay_date": "2024-11-01",
+      "last_delay_date": "2024-11-30",
+      "expected_display_total_rub": "0.00",
+      "expected_exact_total_rub": "0.00",
+      "expected_days_inclusive": 30,
+      "expected_rate_days": {
+        "21.00": 30
+      },
+      "oracle_note": "накопление минимальной суммы за 30 дней при 21.00: 0.021 коп — проверка что долгий период не даёт ложного роста",
+      "input_digest": "aeff0b72b0461e82eab160611d88dea48b37d3b9768a2708d1ee81d99fb2ce9e"
+    },
+    {
+      "id": "amount_min_boundary-03",
+      "kind": "positive",
+      "category": "amount_min_boundary",
+      "arrears_rub": "0.50",
+      "first_delay_date": "2026-04-01",
+      "last_delay_date": "2026-04-20",
+      "expected_display_total_rub": "0.01",
+      "expected_exact_total_rub": "0.00",
+      "expected_days_inclusive": 20,
+      "expected_rate_days": {
+        "15.00": 20
+      },
+      "oracle_note": "итог ровно 0.5 коп (0.5*15*20/300) при ставке 15.00 — граница ROUND_HALF_UP вверх до 0.01",
+      "input_digest": "90d1db3f470269d277139d9d1d534f80ca1580225978621848a546b42177cfeb"
+    },
+    {
+      "id": "amount_min_boundary-04",
+      "kind": "positive",
+      "category": "amount_min_boundary",
+      "arrears_rub": "0.50",
+      "first_delay_date": "2025-06-10",
+      "last_delay_date": "2025-06-24",
+      "expected_display_total_rub": "0.01",
+      "expected_exact_total_rub": "0.00",
+      "expected_days_inclusive": 15,
+      "expected_rate_days": {
+        "20.00": 15
+      },
+      "oracle_note": "итог ровно 0.5 коп (0.5*20*15/300) при ставке 20.00 — та же граница округления на другой ставке",
+      "input_digest": "c0fcd40901246ed5bbd56a007816de18c49a1993d95c1c488dab45ed40a8900d"
+    },
+    {
+      "id": "amount_format-05",
+      "kind": "positive",
+      "category": "amount_format",
+      "arrears_rub": "1000,50",
+      "first_delay_date": "2025-08-01",
+      "last_delay_date": "2025-08-10",
+      "expected_display_total_rub": "6.00",
+      "expected_exact_total_rub": "6.00",
+      "expected_days_inclusive": 10,
+      "expected_rate_days": {
+        "18.00": 10
+      },
+      "oracle_note": "запятая как десятичный разделитель, период целиком внутри ставки 18.00",
+      "input_digest": "4875d24e9db402b9e0250140fd7d7552cb1160a249d796a147c3a327d2f5a047"
+    },
+    {
+      "id": "amount_format-06",
+      "kind": "positive",
+      "category": "amount_format",
+      "arrears_rub": "1234.5",
+      "first_delay_date": "2026-05-05",
+      "last_delay_date": "2026-05-08",
+      "expected_display_total_rub": "2.39",
+      "expected_exact_total_rub": "2.38",
+      "expected_days_inclusive": 4,
+      "expected_rate_days": {
+        "14.50": 4
+      },
+      "oracle_note": "одна цифра после точки при ставке 14.50 — формат с 1 знаком допустим regex",
+      "input_digest": "5c64e6a01c3292ec9dd15ab0b94fd525c7340cdb919df45328a997df04bd3324"
+    },
+    {
+      "id": "amount_format-07",
+      "kind": "positive",
+      "category": "amount_format",
+      "arrears_rub": "000123.45",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_display_total_rub": "0.26",
+      "expected_exact_total_rub": "0.25",
+      "expected_days_inclusive": 3,
+      "expected_rate_days": {
+        "21.00": 3
+      },
+      "oracle_note": "ведущие нули перед целой частью при ставке 21.00 — парсер должен принять значение 123.45",
+      "input_digest": "57701063a9e63e84496b7a3fccbf8501415d23538286f37b69d6f39c78dba9a5"
+    },
+    {
+      "id": "amount_format-08",
+      "kind": "positive",
+      "category": "amount_format",
+      "arrears_rub": "1000000000",
+      "first_delay_date": "2026-08-01",
+      "last_delay_date": "2026-08-03",
+      "expected_display_total_rub": "1400000.00",
+      "expected_exact_total_rub": "1400000.00",
+      "expected_days_inclusive": 3,
+      "expected_rate_days": {
+        "14.00": 3
+      },
+      "oracle_note": "очень большая сумма 10^9 руб без дробной части при ставке 14.00",
+      "input_digest": "75c084d4790d15fc0ada120666be3487c089e6a4fba94533d15de64880425f30"
+    },
+    {
+      "id": "amount_format-09",
+      "kind": "positive",
+      "category": "amount_format",
+      "arrears_rub": "999999999999.99",
+      "first_delay_date": "2025-03-01",
+      "last_delay_date": "2025-03-02",
+      "expected_display_total_rub": "1400000000.00",
+      "expected_exact_total_rub": "1399999999.99",
+      "expected_days_inclusive": 2,
+      "expected_rate_days": {
+        "21.00": 2
+      },
+      "oracle_note": "максимум диапазона 10^12 минус копейка при ставке 21.00 — проверка переполнения/точности Decimal",
+      "input_digest": "266bff6d0a5163fa863b06b65a4b5c9dfe31fe9c0a11a0fea419eeef6e1a6065"
+    },
+    {
+      "id": "amount_format-10",
+      "kind": "positive",
+      "category": "amount_format",
+      "arrears_rub": "1000000000000",
+      "first_delay_date": "2026-09-01",
+      "last_delay_date": "2026-09-01",
+      "expected_display_total_rub": "466666666.67",
+      "expected_exact_total_rub": "466666666.66",
+      "expected_days_inclusive": 1,
+      "expected_rate_days": {
+        "14.00": 1
+      },
+      "oracle_note": "ровно 10^12 руб, один день при ставке 14.00, граница снапшота близко к концу",
+      "input_digest": "81e4642fb9f79039ae3834d45512f6970c5fe305c232c2efe357614d75ed4d36"
+    },
+    {
+      "id": "amount_invalid-11",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": "100.123",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "c74db77cb107d1988df1c66e8fd7dfc39fbe85f7b9d6a32082c3edc9d328b47b"
+    },
+    {
+      "id": "amount_invalid-12",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": "1 000,00",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "eeeb954daaa1a7b591fc8fa03f3d597e3f770c8ad9d6020902c078acf583953a"
+    },
+    {
+      "id": "amount_invalid-13",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": "-500.00",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "553f22e6422c7f3e5947ff2928f5cf24bd04da68fde0513f700cb260a5628c9e"
+    },
+    {
+      "id": "amount_invalid-14",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": "0",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "21effb4b8913c02d325eb623bec0913961213787bd2c9fb547677efd0f3b1993"
+    },
+    {
+      "id": "amount_invalid-15",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": "",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "91cb65616834c727fadf94cd6c35aa5b18d3a2d8995704bd01610d9389ec1f97"
+    },
+    {
+      "id": "amount_invalid-16",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": "1e6",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "b3e06d34bed4d36f83ae5054620cff8c85c3cdd799e5f00dd0847d67e91a9f43"
+    },
+    {
+      "id": "amount_invalid-17",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": null,
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "1e48ae1c8f037d52ba35306cb43a10ac532ce663a6944649c39912c75e9b190e"
+    },
+    {
+      "id": "amount_invalid-18",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": true,
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "c7c22ada6d8ee36370e0b87485d5290edc10b28bd49dea7c857ed8c682265f4e"
+    },
+    {
+      "id": "amount_invalid-19",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": ".",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "a4e6470981bd9dbf83349a73a43f458970e7e714abca6d85ad7d46b5fbaf2499"
+    },
+    {
+      "id": "amount_invalid-20",
+      "kind": "negative",
+      "category": "amount_invalid",
+      "arrears_rub": "сто рублей",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-01-12",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "arrears violates the decimal-amount contract",
+      "input_digest": "d940205ff049e37a3d59a4c87df59880da8a8351453c4528e3dc0076510c00eb"
+    },
+    {
+      "id": "rounding_edge-21",
+      "kind": "positive",
+      "category": "rounding_edge",
+      "arrears_rub": "5.00",
+      "first_delay_date": "2024-11-01",
+      "last_delay_date": "2024-11-10",
+      "expected_display_total_rub": "0.04",
+      "expected_exact_total_rub": "0.03",
+      "expected_days_inclusive": 10,
+      "expected_rate_days": {
+        "21.00": 10
+      },
+      "oracle_note": "итог ровно 3.5 коп (5*21*10/300) при 21.00 — HALF_UP обязан дать 0.04",
+      "input_digest": "eb2e883b3aae73c6f20bc11d7b3cc636fa1cc47a102e22bca5b7e49ef41ff2c0"
+    },
+    {
+      "id": "rounding_edge-22",
+      "kind": "positive",
+      "category": "rounding_edge",
+      "arrears_rub": "4.99",
+      "first_delay_date": "2024-11-01",
+      "last_delay_date": "2024-11-10",
+      "expected_display_total_rub": "0.03",
+      "expected_exact_total_rub": "0.03",
+      "expected_days_inclusive": 10,
+      "expected_rate_days": {
+        "21.00": 10
+      },
+      "oracle_note": "итог 3.493 коп — чуть ниже границы .5, HALF_UP должен дать 0.03, пара к кейсу 5.00",
+      "input_digest": "4b8897c5b2c8039aafa191840338542f9cceb6e93252ca56ffeea1f51125afe6"
+    },
+    {
+      "id": "rounding_edge-23",
+      "kind": "positive",
+      "category": "rounding_edge",
+      "arrears_rub": "15.00",
+      "first_delay_date": "2024-09-20",
+      "last_delay_date": "2024-09-29",
+      "expected_display_total_rub": "0.10",
+      "expected_exact_total_rub": "0.09",
+      "expected_days_inclusive": 10,
+      "expected_rate_days": {
+        "19.00": 10
+      },
+      "oracle_note": "итог ровно 9.5 коп (15*19*10/300) при ставке 19.00 — граница HALF_UP на исторической ставке",
+      "input_digest": "5d4d08339ead269d12bdbd178a03afc08523303cb9ce2bff0102149ab891bb45"
+    },
+    {
+      "id": "rounding_edge-24",
+      "kind": "positive",
+      "category": "rounding_edge",
+      "arrears_rub": "0.90",
+      "first_delay_date": "2025-11-01",
+      "last_delay_date": "2025-11-10",
+      "expected_display_total_rub": "0.00",
+      "expected_exact_total_rub": "0.00",
+      "expected_days_inclusive": 10,
+      "expected_rate_days": {
+        "16.50": 10
+      },
+      "oracle_note": "итог 0.495 коп при дробной ставке 16.50 — микроскопически ниже границы, округление до 0.00",
+      "input_digest": "9d0c791c09da20f79450b8941ba139245e02cd09bbcbc887f7c7ca0e72055e21"
+    },
+    {
+      "id": "rounding_edge-25",
+      "kind": "positive",
+      "category": "rounding_edge",
+      "arrears_rub": "0.91",
+      "first_delay_date": "2025-11-01",
+      "last_delay_date": "2025-11-10",
+      "expected_display_total_rub": "0.01",
+      "expected_exact_total_rub": "0.00",
+      "expected_days_inclusive": 10,
+      "expected_rate_days": {
+        "16.50": 10
+      },
+      "oracle_note": "итог 0.5005 коп при 16.50 — микроскопически выше границы, округление до 0.01, пара к 0.90",
+      "input_digest": "fa7d4a19114eee6c56ebe4d99467d7314f21515ddcc407bd274dc4cad8e9ad32"
+    },
+    {
+      "id": "rounding_edge-26",
+      "kind": "positive",
+      "category": "rounding_edge",
+      "arrears_rub": "50.00",
+      "first_delay_date": "2024-10-25",
+      "last_delay_date": "2024-10-31",
+      "expected_display_total_rub": "0.24",
+      "expected_exact_total_rub": "0.23",
+      "expected_days_inclusive": 7,
+      "expected_rate_days": {
+        "19.00": 3,
+        "21.00": 4
+      },
+      "oracle_note": "период пересекает смену ставки 19.00→21.00 (2024-10-28): 3 дня@19 + 4 дня@21 = ровно 23.5 коп — HALF_UP на смешанных ставках",
+      "input_digest": "6562ec652ef5dc069f86fa932d7d3e10f6d3aafc44072f65f2dcfec6a24882e5"
+    },
+    {
+      "id": "amount_number_type-27",
+      "kind": "positive",
+      "category": "amount_number_type",
+      "arrears_rub": 1500.75,
+      "first_delay_date": "2025-05-05",
+      "last_delay_date": "2025-05-15",
+      "expected_display_total_rub": "11.56",
+      "expected_exact_total_rub": "11.55",
+      "expected_days_inclusive": 11,
+      "expected_rate_days": {
+        "21.00": 11
+      },
+      "oracle_note": "finite JSON-number вместо строки, 11 дней при ставке 21.00 — числовой путь парсинга",
+      "input_digest": "9bc9fb0a37965aa93839c8d80db53c7f175eafaf75caf1443f980b2a9db147f2"
+    },
+    {
+      "id": "amount_number_type-28",
+      "kind": "positive",
+      "category": "amount_number_type",
+      "arrears_rub": 0.01,
+      "first_delay_date": "2026-02-16",
+      "last_delay_date": "2026-02-16",
+      "expected_display_total_rub": "0.00",
+      "expected_exact_total_rub": "0.00",
+      "expected_days_inclusive": 1,
+      "expected_rate_days": {
+        "15.50": 1
+      },
+      "oracle_note": "number 0.01, один день в первый день действия ставки 15.50 — минимальная сумма числом + смена ставки",
+      "input_digest": "e2dd7dee49aec25972c8f763036613865ba974c2350456432eb97ec1f5c51b67"
+    },
+    {
+      "id": "amount_number_type-29",
+      "kind": "positive",
+      "category": "amount_number_type",
+      "arrears_rub": 1000000,
+      "first_delay_date": "2026-07-27",
+      "last_delay_date": "2026-08-05",
+      "expected_display_total_rub": "4666.67",
+      "expected_exact_total_rub": "4666.66",
+      "expected_days_inclusive": 10,
+      "expected_rate_days": {
+        "14.00": 10
+      },
+      "oracle_note": "number 10^6, период начинается точно в дату вступления ставки 14.00 — boundary effective_date включительно",
+      "input_digest": "79ee6124fadce019084dd7770b3f9fb25cabf14babd8f73abb79b327873bad16"
+    },
+    {
+      "id": "rate_boundary-30",
+      "kind": "positive",
+      "category": "rate_boundary",
+      "arrears_rub": "100000",
+      "first_delay_date": "2024-10-27",
+      "last_delay_date": "2024-10-28",
+      "expected_display_total_rub": "133.33",
+      "expected_exact_total_rub": "133.33",
+      "expected_days_inclusive": 2,
+      "expected_rate_days": {
+        "19.00": 1,
+        "21.00": 1
+      },
+      "oracle_note": "период ровно пересекает смену ставки 21.00 (последний день старой + первый день новой)",
+      "input_digest": "7b1495ddefe38e0a881b3cdb048921b395f813795588324d66039ae1a3c1adc5"
+    },
+    {
+      "id": "rate_boundary-31",
+      "kind": "positive",
+      "category": "rate_boundary",
+      "arrears_rub": "250000.50",
+      "first_delay_date": "2025-06-09",
+      "last_delay_date": "2025-06-09",
+      "expected_display_total_rub": "166.67",
+      "expected_exact_total_rub": "166.66",
+      "expected_days_inclusive": 1,
+      "expected_rate_days": {
+        "20.00": 1
+      },
+      "oracle_note": "один день ровно в день смены ставки на 20.00",
+      "input_digest": "117f0c526c21366b5694d4de12db4c128c80f911d8bceaf2785cdd50cf2159b8"
+    },
+    {
+      "id": "rate_boundary-32",
+      "kind": "positive",
+      "category": "rate_boundary",
+      "arrears_rub": "750000",
+      "first_delay_date": "2025-07-01",
+      "last_delay_date": "2025-10-31",
+      "expected_display_total_rub": "55462.50",
+      "expected_exact_total_rub": "55462.50",
+      "expected_days_inclusive": 123,
+      "expected_rate_days": {
+        "20.00": 27,
+        "18.00": 49,
+        "17.00": 42,
+        "16.50": 5
+      },
+      "oracle_note": "период через 3 смены ставки: 2025-07-28=18.00, 2025-09-15=17.00, 2025-10-27=16.50",
+      "input_digest": "ecf659a312c07e727d8fc6ae4131dee29ba4d0c670336a269a43337c95776a76"
+    },
+    {
+      "id": "rate_boundary-33",
+      "kind": "positive",
+      "category": "rate_boundary",
+      "arrears_rub": "480000.25",
+      "first_delay_date": "2024-09-01",
+      "last_delay_date": "2024-09-15",
+      "expected_display_total_rub": "4320.00",
+      "expected_exact_total_rub": "4320.00",
+      "expected_days_inclusive": 15,
+      "expected_rate_days": {
+        "18.00": 15
+      },
+      "oracle_note": "период только до смены ставки 2024-09-16=19.00, без пересечения границы",
+      "input_digest": "ed3384cdc8ba1e3a36521fc8056a9ef8e2e35f5b5ab0ea4f6fed11d527b612c7"
+    },
+    {
+      "id": "rate_boundary-34",
+      "kind": "positive",
+      "category": "rate_boundary",
+      "arrears_rub": "320000",
+      "first_delay_date": "2026-02-17",
+      "last_delay_date": "2026-03-22",
+      "expected_display_total_rub": "5621.33",
+      "expected_exact_total_rub": "5621.33",
+      "expected_days_inclusive": 34,
+      "expected_rate_days": {
+        "15.50": 34
+      },
+      "oracle_note": "период только после смены 2026-02-16=15.50 и строго до следующей 2026-03-23=15.00",
+      "input_digest": "027b757ed5d713a12378edcc61cfd42b4745782850c0377d9888b3bb7c796297"
+    },
+    {
+      "id": "rate_boundary-35",
+      "kind": "positive",
+      "category": "rate_boundary",
+      "arrears_rub": "99.99",
+      "first_delay_date": "2026-06-21",
+      "last_delay_date": "2026-06-22",
+      "expected_display_total_rub": "0.10",
+      "expected_exact_total_rub": "0.09",
+      "expected_days_inclusive": 2,
+      "expected_rate_days": {
+        "14.50": 1,
+        "14.25": 1
+      },
+      "oracle_note": "пересечение дня смены ставки 14.25 (2026-06-22) на минимальной сумме с копейками",
+      "input_digest": "0b6dedbb30e92096415fae066761e2623d4eef3cb8bd4604a0dea34e387a963e"
+    },
+    {
+      "id": "snapshot_boundary-36",
+      "kind": "positive",
+      "category": "snapshot_boundary",
+      "arrears_rub": "1500000",
+      "first_delay_date": "2013-09-17",
+      "last_delay_date": "2013-09-30",
+      "expected_display_total_rub": "3850.00",
+      "expected_exact_total_rub": "3850.00",
+      "expected_days_inclusive": 14,
+      "expected_rate_days": {
+        "5.50": 14
+      },
+      "oracle_note": "период начинается ровно с первой даты снапшота 2013-09-17",
+      "input_digest": "2609c7eae524a55fd094a1f2e0e2f71a7c0aa827622912cbf4a72928868f9fcd"
+    },
+    {
+      "id": "snapshot_boundary-37",
+      "kind": "positive",
+      "category": "snapshot_boundary",
+      "arrears_rub": "640000.75",
+      "first_delay_date": "2026-09-01",
+      "last_delay_date": "2026-09-18",
+      "expected_display_total_rub": "5376.01",
+      "expected_exact_total_rub": "5376.00",
+      "expected_days_inclusive": 18,
+      "expected_rate_days": {
+        "14.00": 18
+      },
+      "oracle_note": "период заканчивается ровно последней датой снапшота 2026-09-18",
+      "input_digest": "1b18cc110995746a78004e8bdfd582170debedb6f2aab4657a281f05062290c4"
+    },
+    {
+      "id": "snapshot_boundary-38",
+      "kind": "positive",
+      "category": "snapshot_boundary",
+      "arrears_rub": "100000",
+      "first_delay_date": "2013-09-17",
+      "last_delay_date": "2013-09-17",
+      "expected_display_total_rub": "18.33",
+      "expected_exact_total_rub": "18.33",
+      "expected_days_inclusive": 1,
+      "expected_rate_days": {
+        "5.50": 1
+      },
+      "oracle_note": "один день ровно на нижней границе снапшота",
+      "input_digest": "938d2de27df92837e362829b2ec9c34e5f201257f7ea249d2cb73fa2339f4c1f"
+    },
+    {
+      "id": "snapshot_boundary-39",
+      "kind": "positive",
+      "category": "snapshot_boundary",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-09-18",
+      "last_delay_date": "2026-09-18",
+      "expected_display_total_rub": "46.67",
+      "expected_exact_total_rub": "46.66",
+      "expected_days_inclusive": 1,
+      "expected_rate_days": {
+        "14.00": 1
+      },
+      "oracle_note": "один день ровно на верхней границе снапшота",
+      "input_digest": "fee1eebfea3c526cffdc0889445170b462ab1c9272b47248e8965756b5a33b58"
+    },
+    {
+      "id": "snapshot_boundary-40",
+      "kind": "positive",
+      "category": "snapshot_boundary",
+      "arrears_rub": "2500000",
+      "first_delay_date": "2015-06-01",
+      "last_delay_date": "2026-06-01",
+      "expected_display_total_rub": "3514333.33",
+      "expected_exact_total_rub": "3514333.33",
+      "expected_days_inclusive": 4019,
+      "expected_rate_days": {
+        "12.50": 15,
+        "11.50": 48,
+        "11.00": 334,
+        "10.50": 97,
+        "10.00": 189,
+        "9.75": 36,
+        "9.25": 48,
+        "9.00": 91,
+        "8.50": 120,
+        "8.25": 49,
+        "7.75": 238,
+        "7.50": 539,
+        "7.25": 217,
+        "7.00": 49,
+        "6.50": 98,
+        "6.25": 56,
+        "6.00": 77,
+        "5.50": 97,
+        "4.50": 70,
+        "4.25": 238,
+        "5.00": 50,
+        "6.75": 42,
+        "9.50": 55,
+        "20.00": 91,
+        "17.00": 65,
+        "14.00": 23,
+        "8.00": 56,
+        "12.00": 34,
+        "13.00": 42,
+        "15.00": 84,
+        "16.00": 280,
+        "18.00": 98,
+        "19.00": 42,
+        "21.00": 224,
+        "16.50": 56,
+        "15.50": 35,
+        "14.50": 36
+      },
+      "oracle_note": "длинный многолетний период через множество смен ставки и границы лет",
+      "input_digest": "4673b4095f35d6828baddffb2e619fdd829c78fc42dd94ca25a5834ade113156"
+    },
+    {
+      "id": "calendar_edge-41",
+      "kind": "positive",
+      "category": "calendar_edge",
+      "arrears_rub": "12345.67",
+      "first_delay_date": "2024-02-28",
+      "last_delay_date": "2024-02-29",
+      "expected_display_total_rub": "13.17",
+      "expected_exact_total_rub": "13.16",
+      "expected_days_inclusive": 2,
+      "expected_rate_days": {
+        "16.00": 2
+      },
+      "oracle_note": "високосный 2024-02-29 существует, проверка инклюзивности последнего дня",
+      "input_digest": "8aaee603d18841c5366d1b7e06eed8bb47107d743ec79ce907d5a8a3e97b1cbb"
+    },
+    {
+      "id": "calendar_edge-42",
+      "kind": "positive",
+      "category": "calendar_edge",
+      "arrears_rub": "870000",
+      "first_delay_date": "2025-12-31",
+      "last_delay_date": "2026-01-01",
+      "expected_display_total_rub": "928.00",
+      "expected_exact_total_rub": "928.00",
+      "expected_days_inclusive": 2,
+      "expected_rate_days": {
+        "16.00": 2
+      },
+      "oracle_note": "переход через конец месяца и конец года 31.12→01.01",
+      "input_digest": "007abb0e2257826039158965d7cfe29b7d452268c3fe73d20fdc872dec251129"
+    },
+    {
+      "id": "calendar_edge-43",
+      "kind": "positive",
+      "category": "calendar_edge",
+      "arrears_rub": "55555.55",
+      "first_delay_date": "2025-08-15",
+      "last_delay_date": "2025-08-15",
+      "expected_display_total_rub": "33.33",
+      "expected_exact_total_rub": "33.33",
+      "expected_days_inclusive": 1,
+      "expected_rate_days": {
+        "18.00": 1
+      },
+      "oracle_note": "обычный период из одного дня first==last",
+      "input_digest": "aa8dceeccdad99ace15e37496377e8271c8d85eb94d5baa9009b6172341475b4"
+    },
+    {
+      "id": "date_invalid-44",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2025-02-29",
+      "last_delay_date": "2025-03-10",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "first_delay_date is not a strict ISO calendar date",
+      "input_digest": "af2495ffc5d29262655ea2d0bf6d2356f02b1dd823e24d93ade533d7c09d4165"
+    },
+    {
+      "id": "date_invalid-45",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2025-01-01",
+      "last_delay_date": "2025-13-01",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "last_delay_date is not a strict ISO calendar date",
+      "input_digest": "1cb88a9e51f0631d9da9edd51af27ba2a6d50ff45c6de23aa4fe4e810f846ff3"
+    },
+    {
+      "id": "date_invalid-46",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2025-01-32",
+      "last_delay_date": "2025-02-10",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "first_delay_date is not a strict ISO calendar date",
+      "input_digest": "941144fc892669050c99dbaae973167bb6ddcdcedacff4f8fe57ccc00e507b94"
+    },
+    {
+      "id": "date_invalid-47",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2025-01-01",
+      "last_delay_date": "2025-01-00",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "last_delay_date is not a strict ISO calendar date",
+      "input_digest": "26e0d750f3ab966174a0fe2dbef017f2695aa3283ec0aaf8dcc658a07de980dd"
+    },
+    {
+      "id": "date_invalid-48",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-1-5",
+      "last_delay_date": "2026-01-10",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "first_delay_date is not a strict ISO calendar date",
+      "input_digest": "ad24ff4a949ab13f4ad4690680d46fa503e8e1facfa5a07643e2a6d95332bab8"
+    },
+    {
+      "id": "date_invalid-49",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-01-01",
+      "last_delay_date": "05.01.2026",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "last_delay_date is not a strict ISO calendar date",
+      "input_digest": "016168348d3bb593dad4c253e8bc1a371880d8d9a7e8688f06959f9b15e42c6f"
+    },
+    {
+      "id": "date_invalid-50",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-01-05T00:00:00Z",
+      "last_delay_date": "2026-01-10",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "first_delay_date is not a strict ISO calendar date",
+      "input_digest": "216757757732368b897f2be665d55aa381294d14a748e5296d1a2862551e8bee"
+    },
+    {
+      "id": "date_invalid-51",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "",
+      "last_delay_date": "2025-01-10",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "first_delay_date is not a strict ISO calendar date",
+      "input_digest": "4ab75aac9d6ef83ee2fd256c310a4fff671d85bba21c3797c67b254724e070e0"
+    },
+    {
+      "id": "date_invalid-52",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "yesterday",
+      "last_delay_date": "2025-01-10",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "first_delay_date is not a strict ISO calendar date",
+      "input_digest": "8fd78614aea0e47e65b73d7f4791ee72cb89e8e1f31031768ebda97e36eb2e98"
+    },
+    {
+      "id": "date_invalid-53",
+      "kind": "negative",
+      "category": "date_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2025-03-01",
+      "last_delay_date": "2025-02-01",
+      "expected_error_code": "invalid_input",
+      "oracle_note": "first_delay_date after last_delay_date",
+      "input_digest": "a07dedb82156f473205ac258333815a5333449fa1f61683a2eb33d2720b5a820"
+    },
+    {
+      "id": "range_invalid-54",
+      "kind": "negative",
+      "category": "range_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2026-09-01",
+      "last_delay_date": "2026-09-19",
+      "expected_error_code": "source_range",
+      "oracle_note": "outside snapshot 2013-09-17..2026-09-18 (fail-closed, no extrapolation)",
+      "input_digest": "b5bd63f680fcf554455127d2645133f1f81bf2751e9c80e439ef41dbb902db6d"
+    },
+    {
+      "id": "range_invalid-55",
+      "kind": "negative",
+      "category": "range_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2013-09-16",
+      "last_delay_date": "2013-10-01",
+      "expected_error_code": "source_range",
+      "oracle_note": "outside snapshot 2013-09-17..2026-09-18 (fail-closed, no extrapolation)",
+      "input_digest": "48cba9fe26e7f00c9cb27b58ab5bc313756e72a6fed35ee32ce0d72b2f109718"
+    },
+    {
+      "id": "range_invalid-56",
+      "kind": "negative",
+      "category": "range_invalid",
+      "arrears_rub": "100000",
+      "first_delay_date": "2010-01-01",
+      "last_delay_date": "2030-01-01",
+      "expected_error_code": "source_range",
+      "oracle_note": "outside snapshot 2013-09-17..2026-09-18 (fail-closed, no extrapolation)",
+      "input_digest": "ecb3ecbf99d571dbd9f33e9611ee026e559b394a8847ef6038a1014c37f68f6e"
+    },
+    {
+      "id": "scope_invalid-57",
+      "kind": "negative",
+      "category": "scope_invalid",
+      "arrears_rub": "500000",
+      "first_delay_date": "2025-01-10",
+      "last_delay_date": "2025-02-10",
+      "payer_type": "legal_entity",
+      "expected_error_code": "unsupported_scope",
+      "oracle_note": "MVP-1 scope is individuals/IP under Art. 75(4)(1) only",
+      "input_digest": "c70d84338fa24ac1926ed81a6c56ccb9e68336248d98264f655f61fabad9e016"
+    },
+    {
+      "id": "scope_invalid-58",
+      "kind": "negative",
+      "category": "scope_invalid",
+      "arrears_rub": "250000.75",
+      "first_delay_date": "2025-05-01",
+      "last_delay_date": "2025-05-31",
+      "payer_type": "organization",
+      "expected_error_code": "unsupported_scope",
+      "oracle_note": "MVP-1 scope is individuals/IP under Art. 75(4)(1) only",
+      "input_digest": "ccf7e7d9194c761525698d504d4d44de2355f99a0ee2d630b423630636005ec0"
+    },
+    {
+      "id": "scope_invalid-59",
+      "kind": "negative",
+      "category": "scope_invalid",
+      "arrears_rub": "1000000",
+      "first_delay_date": "2026-01-05",
+      "last_delay_date": "2026-01-20",
+      "payer_type": "ООО",
+      "expected_error_code": "unsupported_scope",
+      "oracle_note": "MVP-1 scope is individuals/IP under Art. 75(4)(1) only",
+      "input_digest": "497e1fa6c3b4b8a511d5bf2ec051827e31b58a35e0a0765ff35468acb6fe5dfd"
+    }
+  ]
+}
