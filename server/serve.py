@@ -22,11 +22,20 @@ import argparse
 import json
 import os
 import signal
+import socketserver
 import sys
 import threading
 import urllib.parse
 from http import HTTPStatus
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+try:  # Python >= 3.7
+    from http.server import ThreadingHTTPServer
+except ImportError:  # production VDS: Ubuntu 18.04 /usr/bin/python3 = 3.6.9
+    # Байт-эквивалент определения из CPython 3.7+ Lib/http/server.py:
+    # тот же ThreadingMixIn + HTTPServer и daemon_threads = True.
+    class ThreadingHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
+        daemon_threads = True
 
 import measure_core as core
 
@@ -42,6 +51,15 @@ _REDACTED_ROUTE = "/api/__redacted__"
 class MeasureHandler(BaseHTTPRequestHandler):
     server_version = "peni-measure/1"
     protocol_version = "HTTP/1.1"
+    # BaseHTTPRequestHandler._control_char_table существует только в свежих
+    # релизах CPython (в 3.6.9 на prod VDS его нет). Определяем явно и
+    # байт-идентично таблице CPython (0x00-0x1f, 0x7f, C1 0x80-0x9f ->
+    # '\xNN'; backslash -> '\\\\'), чтобы санитизация журнала не зависела
+    # от версии runtime.
+    _control_char_table = dict(
+        [(c, '\\x%02x' % c)
+         for c in list(range(32)) + [127] + list(range(128, 160))]
+        + [(92, '\\\\')])
 
     def _safe_route(self):
         """Нормализованный маршрут для лога: только allowlist, без query string.
