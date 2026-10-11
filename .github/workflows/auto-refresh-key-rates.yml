@@ -84,8 +84,27 @@ jobs:
             exit 0
           fi
           git push origin "$BRANCH"
-          gh pr create \
+          HEAD_SHA="$(git rev-parse HEAD)"
+          mkdir -p "$RUNNER_TEMP/rates-handoff"
+          # Идемпотентно: точный открытый PR -> переиспользуем; у Actions нет права
+          # создавать PR -> устойчивая квитанция NEEDS_REVIEW (PR не заявляется как
+          # доставленный); иная ошибка API или drift head -> шаг падает (exit 1).
+          python tools/propose_rates_pr.py \
+            --repo "$GITHUB_REPOSITORY" \
             --base main \
             --head "$BRANCH" \
+            --head-sha "$HEAD_SHA" \
             --title "ops: auto-refresh CBR key rates ($(date -u +%Y-%m-%d))" \
-            --body "Automated daily refresh by \`tools/refresh_rates.py\` (workflow \`auto-refresh-key-rates\`). Fixtures passed before commit."
+            --body "Automated daily refresh by \`tools/refresh_rates.py\` (workflow \`auto-refresh-key-rates\`). Fixtures passed before commit." \
+            --data data/key-rates.json \
+            --artifact data/key-rates.json \
+            --receipt "$RUNNER_TEMP/rates-handoff/receipt.json"
+
+      - name: Upload review receipt (always, no tokens)
+        if: always() && steps.refresh.outputs.updated != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: auto-refresh-key-rates-receipt
+          path: ${{ runner.temp }}/rates-handoff/receipt.json
+          if-no-files-found: ignore
+          retention-days: 30
